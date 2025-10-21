@@ -1,0 +1,189 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccv6s2uau266n"]
+
+[ext_resource type="Script" uid="uid://b8p2dijf3gad" path="res://scripts/settings.gd" id="1_mvpff"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_2h877"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_h68ux"]
+events = [SubResource("InputEventAction_2h877")]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mvpff")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.345098, 0.717647, 1)
+
+[node name="SettingsHeader" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_right = 240.0
+offset_bottom = 128.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -232.0
+offset_right = 220.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/VolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VolumeText" type="Label" parent="VBoxContainer2/VolumeContainer/MarginContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/VolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer2/VolumeContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Set volume from 0-100%"
+min_value = -80.0
+max_value = 24.0
+rounded = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Text" type="Label" parent="VBoxContainer2/HBoxContainer2/MarginContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 0.454902)
+theme_override_font_sizes/font_size = 40
+text = "WIP"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer2/HBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+rounded = true
+editable = false
+
+[node name="DifficultyContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/DifficultyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DifficultyText" type="Label" parent="VBoxContainer2/DifficultyContainer/MarginContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/DifficultyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DifficultySlider" type="HSlider" parent="VBoxContainer2/DifficultyContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Set difficulty. 
+Ranges from 1 (easy) to 3 (hard). 
+This effects mob spawn rate, 
+speed and total mobs alive."
+min_value = 1.0
+max_value = 3.0
+value = 2.0
+rounded = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -144.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_h68ux")
+text = "Back
+"
+
+[node name="Save" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+disabled = true
+shortcut = SubResource("Shortcut_h68ux")
+text = "Save
+"
+
+[connection signal="value_changed" from="VBoxContainer2/VolumeContainer/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/DifficultyContainer/MarginContainer/DifficultySlider" to="." method="_on_difficulty_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Save" to="." method="_on_save_pressed"]

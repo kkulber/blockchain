@@ -15,7 +15,19 @@ run/main_scene="uid://dp0miaek6fwkg"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://scripts/globals.gd"
+Log="*res://scripts/Log.gd"
+GlobalSettings="*res://scripts/global_settings.gd"
+GlobalAudio="*res://scenes/globalAudio.tscn"
+
+[dotnet]
+
+project/assembly_name="blockchain-projekt"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

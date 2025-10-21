@@ -1,4 +1,6 @@
 extends Node2D
+var settings_scene = null
+
 	
 var counter = 0	
 var source_image = load("res://icon.svg")
@@ -9,6 +11,7 @@ func _ready():
 	
 	# Reset counter label
 	$CanvasLayer/Counter/Label.text = str(counter)
+	
 	
 # Function called when a block gets added
 func add_block():
@@ -35,3 +38,9 @@ func _process(delta: float) -> void:
 		$CanvasLayer/Block/Panel.modulate = Color.RED
 		$CanvasLayer/Block/Deckel.visible = false
 		$CanvasLayer/Block/Add.visible = false
+
+
+func _on_button_settings_pressed() -> void:
+	#var parent = self.get_parent()
+	self.get_node("CanvasLayer_Settings").show()
+	self.get_node("CanvasLayer").hide()
