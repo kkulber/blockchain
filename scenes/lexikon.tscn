@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmnxtwg3yeymx"]
+[gd_scene load_steps=9 format=3 uid="uid://cmnxtwg3yeymx"]
 
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_paukg"]
 [ext_resource type="LabelSettings" uid="uid://c2qk7n04an7nk" path="res://art/default_font.tres" id="3_k8g70"]
+[ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="4_k8g70"]
 [ext_resource type="Script" uid="uid://b0w3qxrcohdy" path="res://scripts/lexikon.gd" id="4_paukg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m10ki"]
@@ -323,7 +324,10 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 48
 shortcut = SubResource("Shortcut_h68ux")
-text = " ↩️"
+icon = ExtResource("4_k8g70")
+flat = true
+icon_alignment = 1
+expand_icon = true
 script = SubResource("GDScript_m10ki")
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
