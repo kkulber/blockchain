@@ -15,6 +15,10 @@ var data_dad
 var previous_pointer_dad
 var hashgenerator_shown = false
 
+var hash_dad
+var block_is_complete = false
+var package_top
+
 func show_hashgenerator() -> void:
 	# Show the hashgenerator 
 	$CanvasLayer/Hashgenerator.visible = true 
@@ -40,16 +44,26 @@ func _ready() -> void:
 	
 	data_dad = $CanvasLayer/YourBlock/data_rect
 	previous_pointer_dad = $CanvasLayer/YourBlock/pointer_square
+	hash_dad = $CanvasLayer/YourBlock/hash_square
+	
+	package_top = $CanvasLayer/YourBlock/PaketTop
 	
 	# Turns off the hashgenerator
 	hide_hashgenerator()
+	
+	# Hide the package top part
+	package_top.visible = false
 
 func _process(delta: float) -> void:
 	# Check each frame if previous hash and data dad
 	# have been set
 	if data_dad.texture and previous_pointer_dad.texture and not hashgenerator_shown:
 		show_hashgenerator()
-
+		
+	# Check each frame if the block is complete
+	if data_dad.texture and previous_pointer_dad.texture and hash_dad.texture and not block_is_complete:
+		package_top.visible = true
+		block_is_complete = true
 # This function is called when the text inside
 # the data input field changes
 # func _on_data_input_text_changed(new_text: String) -> void:

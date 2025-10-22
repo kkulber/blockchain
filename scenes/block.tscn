@@ -1,17 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://xvts10fh1qyk"]
+[gd_scene load_steps=4 format=3 uid="uid://xvts10fh1qyk"]
 
 [ext_resource type="PackedScene" uid="uid://delhpy0pbys1y" path="res://scenes/dad_rect.tscn" id="1_2wby2"]
+[ext_resource type="Texture2D" uid="uid://bg8ehqpa8upe6" path="res://images/Paket.svg" id="1_4kun4"]
 [ext_resource type="PackedScene" uid="uid://dfgts0ldpgl01" path="res://scenes/dad_square.tscn" id="3_i42b4"]
 
 [node name="Block" type="Node2D"]
 
-[node name="Background" type="Panel" parent="."]
-modulate = Color(18.892157, 18.892157, 18.892157, 1)
-offset_left = 12.0
-offset_top = 50.0
-offset_right = 239.0
-offset_bottom = 277.0
-metadata/_edit_use_anchors_ = true
+[node name="Paket" type="Sprite2D" parent="."]
+position = Vector2(127.99999, 159)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("1_4kun4")
 
 [node name="data_rect" parent="." instance=ExtResource("1_2wby2")]
 offset_left = 26.0

@@ -8,15 +8,25 @@ func _get_drag_data(at_position):
 	
 	var preview = Control.new()
 	preview.add_child(preview_texture)
-	
 	set_drag_preview(preview)
-	texture = null
 	
-	return preview_texture.texture
+	# Hier fügen wir eine Referenz zur Quelle hinzu
+	var drag_data = {
+		"texture": texture,
+		"source": self
+	}
 	
+	return drag_data
+
+
 func _can_drop_data(_pos, data):
-	return data is Texture2D
-	
+	return typeof(data) == TYPE_DICTIONARY and data.has("texture")
+
+
 func _drop_data(_pos, data):
-	texture = data
-		
+	# Ziel erhält die Textur
+	texture = data["texture"]
+	
+	# Quelle leeren, aber nur, wenn Ziel != Quelle
+	if data["source"] != self:
+		data["source"].texture = null

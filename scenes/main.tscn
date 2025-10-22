@@ -1,13 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp0miaek6fwkg"]
+[gd_scene load_steps=12 format=3 uid="uid://dp0miaek6fwkg"]
 
 [ext_resource type="Script" uid="uid://ck2oqndpp715y" path="res://scripts/main.gd" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://bg8ehqpa8upe6" path="res://images/Paket.svg" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://delhpy0pbys1y" path="res://scenes/dad_rect.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dfgts0ldpgl01" path="res://scenes/dad_square.tscn" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bq0chd0f1jldb" path="res://images/PreviousHash.png" id="4_tefeu"]
 [ext_resource type="Texture2D" uid="uid://beaxmuatvovju" path="res://images/Data.png" id="5_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://cgjmglf5fs7jg" path="res://images/PaketTop.svg" id="5_tipki"]
 [ext_resource type="Script" uid="uid://cly6rpvjpmjry" path="res://scripts/hashgenerator.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://sxao0ue5uobb" path="res://scripts/questcontainer.gd" id="9_85g3d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
+font_size = 24
+font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.08627451)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_choun"]
 font_size = 24
 
 [node name="Ebene1" type="Node2D"]
@@ -17,16 +27,21 @@ script = ExtResource("1_lquwl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="YourBlock" type="Node2D" parent="CanvasLayer"]
-position = Vector2(380, 706)
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.85490197, 0.85490197, 0.85490197, 1)
 
-[node name="Background" type="Panel" parent="CanvasLayer/YourBlock"]
-modulate = Color(18.892157, 18.892157, 18.892157, 1)
-offset_left = 12.0
-offset_top = 50.0
-offset_right = 239.0
-offset_bottom = 277.0
-metadata/_edit_use_anchors_ = true
+[node name="YourBlock" type="Node2D" parent="CanvasLayer"]
+position = Vector2(383, 832)
+
+[node name="Paket" type="Sprite2D" parent="CanvasLayer/YourBlock"]
+position = Vector2(129, 161)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("2_o6xl0")
 
 [node name="data_rect" parent="CanvasLayer/YourBlock" instance=ExtResource("3_jyhfs")]
 offset_left = 26.0
@@ -49,24 +64,18 @@ offset_right = 228.0
 offset_bottom = 159.0
 metadata/_edit_use_anchors_ = true
 
-[node name="top" type="Panel" parent="CanvasLayer/YourBlock"]
-modulate = Color(0, 18.892157, 0, 1)
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 251.0
-offset_bottom = 53.0
-metadata/_edit_use_anchors_ = true
+[node name="PaketTop" type="Sprite2D" parent="CanvasLayer/YourBlock"]
+position = Vector2(128.99998, -85)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("5_tipki")
 
 [node name="LastBlock" type="Node2D" parent="CanvasLayer"]
-position = Vector2(-20, 706)
+position = Vector2(-17, 832)
 
-[node name="Background" type="Panel" parent="CanvasLayer/LastBlock"]
-modulate = Color(18.892157, 18.892157, 18.892157, 1)
-offset_left = 12.0
-offset_top = 50.0
-offset_right = 239.0
-offset_bottom = 277.0
-metadata/_edit_use_anchors_ = true
+[node name="Paket" type="Sprite2D" parent="CanvasLayer/LastBlock"]
+position = Vector2(127, 161)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("2_o6xl0")
 
 [node name="hash_square" parent="CanvasLayer/LastBlock" instance=ExtResource("3_tbgi4")]
 offset_left = 128.0
@@ -76,58 +85,43 @@ offset_bottom = 159.0
 texture = ExtResource("4_tefeu")
 metadata/_edit_use_anchors_ = true
 
-[node name="top" type="Panel" parent="CanvasLayer/LastBlock"]
-modulate = Color(0, 18.892157, 0, 1)
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 251.0
-offset_bottom = 53.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Data" parent="CanvasLayer" instance=ExtResource("3_jyhfs")]
-offset_left = 423.0
-offset_top = 1318.0
-offset_right = 623.0
-offset_bottom = 1418.0
-texture = ExtResource("5_o6xl0")
-
-[node name="DataInput" type="LineEdit" parent="CanvasLayer"]
-offset_left = 336.0
-offset_top = 1454.0
-offset_right = 722.0
-offset_bottom = 1550.0
-placeholder_text = "Fülle deinen Block mit Leben.."
+[node name="PaketTop" type="Sprite2D" parent="CanvasLayer/LastBlock"]
+position = Vector2(127.99999, -81)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("5_tipki")
 
 [node name="Labels" type="Node" parent="CanvasLayer"]
 
 [node name="LabelYourBlock" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 444.0
-offset_top = 617.0
-offset_right = 566.0
-offset_bottom = 651.0
+offset_left = 447.0
+offset_top = 743.0
+offset_right = 569.0
+offset_bottom = 777.0
 text = "Dein Block"
 label_settings = SubResource("LabelSettings_tbgi4")
+uppercase = true
 
 [node name="LabelLastBlock" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 79.0
-offset_top = 617.0
-offset_right = 229.0
-offset_bottom = 651.0
+offset_left = 82.0
+offset_top = 743.0
+offset_right = 232.0
+offset_bottom = 777.0
 text = "Letzter Block"
 label_settings = SubResource("LabelSettings_tbgi4")
+uppercase = true
 
 [node name="BlockLastHashOriginal" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 44.0
-offset_top = 867.0
-offset_right = 194.0
-offset_bottom = 901.0
+offset_left = 47.0
+offset_top = 993.0
+offset_right = 197.0
+offset_bottom = 1027.0
 label_settings = SubResource("LabelSettings_tbgi4")
 
 [node name="BlockLastHashLink" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 250.0
-offset_top = 784.0
-offset_right = 400.0
-offset_bottom = 818.0
+offset_left = 253.0
+offset_top = 910.0
+offset_right = 403.0
+offset_bottom = 944.0
 label_settings = SubResource("LabelSettings_tbgi4")
 
 [node name="BlockHash" type="Label" parent="CanvasLayer/Labels"]
@@ -138,10 +132,10 @@ offset_bottom = 835.0
 label_settings = SubResource("LabelSettings_tbgi4")
 
 [node name="BlockData" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 439.0
-offset_top = 975.0
-offset_right = 589.0
-offset_bottom = 1009.0
+offset_left = 442.0
+offset_top = 1101.0
+offset_right = 592.0
+offset_bottom = 1135.0
 label_settings = SubResource("LabelSettings_tbgi4")
 
 [node name="Hashgenerator" type="Node2D" parent="CanvasLayer"]
@@ -160,5 +154,60 @@ offset_top = 578.0
 offset_right = 886.0
 offset_bottom = 678.0
 
-[connection signal="text_changed" from="CanvasLayer/DataInput" to="." method="_on_data_input_text_changed"]
+[node name="Datacreator" type="Node" parent="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Datacreator"]
+offset_left = 160.0
+offset_top = 1424.0
+offset_right = 923.0
+offset_bottom = 1581.0
+
+[node name="Data" parent="CanvasLayer/Datacreator" instance=ExtResource("3_jyhfs")]
+offset_left = 194.0
+offset_top = 1451.0
+offset_right = 394.0
+offset_bottom = 1551.0
+texture = ExtResource("5_o6xl0")
+
+[node name="DataInput" type="LineEdit" parent="CanvasLayer/Datacreator"]
+offset_left = 508.0
+offset_top = 1451.0
+offset_right = 894.0
+offset_bottom = 1547.0
+placeholder_text = "Fülle deinen Block mit Leben.."
+
+[node name="Questcontainer" type="Node" parent="CanvasLayer"]
+script = ExtResource("9_85g3d")
+
+[node name="Background" type="Panel" parent="CanvasLayer/Questcontainer"]
+offset_left = 430.0
+offset_top = 105.0
+offset_right = 1101.0
+offset_bottom = 318.0
+
+[node name="Text" type="Label" parent="CanvasLayer/Questcontainer"]
+offset_left = 455.0
+offset_top = 136.0
+offset_right = 1026.0
+offset_bottom = 297.0
+label_settings = SubResource("LabelSettings_choun")
+
+[node name="LowerQuest" type="Button" parent="CanvasLayer/Questcontainer"]
+offset_left = 438.0
+offset_top = 336.0
+offset_right = 538.0
+offset_bottom = 436.0
+text = "<
+"
+
+[node name="AdvanceQuest" type="Button" parent="CanvasLayer/Questcontainer"]
+offset_left = 569.0
+offset_top = 336.0
+offset_right = 669.0
+offset_bottom = 436.0
+text = ">"
+
 [connection signal="pressed" from="CanvasLayer/Hashgenerator/Button" to="CanvasLayer/Hashgenerator" method="generate_hash"]
+[connection signal="text_changed" from="CanvasLayer/Datacreator/DataInput" to="." method="_on_data_input_text_changed"]
+[connection signal="pressed" from="CanvasLayer/Questcontainer/LowerQuest" to="CanvasLayer/Questcontainer" method="lower_quest"]
+[connection signal="pressed" from="CanvasLayer/Questcontainer/AdvanceQuest" to="CanvasLayer/Questcontainer" method="advance_quest"]
