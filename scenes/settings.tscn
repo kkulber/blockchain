@@ -37,7 +37,7 @@ offset_bottom = 128.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
-text = "Settings"
+text = "Einstellungen"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -49,10 +49,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = -232.0
-offset_right = 220.0
-offset_bottom = 216.0
+offset_left = -272.5
+offset_top = -225.5
+offset_right = 272.5
+offset_bottom = 225.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -69,8 +69,8 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 40
-text = "Volume"
-horizontal_alignment = 1
+text = "Lautstärke "
+horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -102,8 +102,8 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 1, 0.454902)
 theme_override_font_sizes/font_size = 40
-text = "WIP"
-horizontal_alignment = 1
+text = "WIP "
+horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -131,8 +131,8 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 40
-text = "Text"
-horizontal_alignment = 1
+text = "Schriftgröße "
+horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -153,6 +153,39 @@ min_value = 1.0
 max_value = 3.0
 value = 2.0
 rounded = true
+
+[node name="LanguageContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/LanguageContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DifficultyText" type="Label" parent="VBoxContainer2/LanguageContainer/MarginContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Sprache "
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/LanguageContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer2/LanguageContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+item_count = 2
+popup/item_0/text = "Deutsch"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
