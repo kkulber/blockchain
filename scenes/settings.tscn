@@ -1,18 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://davpcfmndjtos"]
+[gd_scene load_steps=11 format=3 uid="uid://davpcfmndjtos"]
 
 [ext_resource type="Script" uid="uid://b8p2dijf3gad" path="res://scripts/settings.gd" id="1_mvpff"]
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_6wm04"]
 [ext_resource type="LabelSettings" uid="uid://c2qk7n04an7nk" path="res://art/default_font.tres" id="2_r6d6q"]
+[ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="3_f4mfi"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_2h877"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_es4n0"]
+events = [SubResource("InputEventAction_2h877")]
+
+[sub_resource type="GDScript" id="GDScript_gis3k"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_back_lexikon_pressed() -> void:
+	
+	pass # Replace with function body.
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_r6d6q"]
 font_size = 75
 font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
 
-[sub_resource type="InputEventAction" id="InputEventAction_2h877"]
+[sub_resource type="InputEventAction" id="InputEventAction_83j8s"]
 action = &"start_game"
 
 [sub_resource type="Shortcut" id="Shortcut_h68ux"]
-events = [SubResource("InputEventAction_2h877")]
+events = [SubResource("InputEventAction_83j8s")]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -58,6 +84,22 @@ position = Vector2(-5, -1)
 scale = Vector2(0.53139013, 0.53539824)
 texture = ExtResource("2_6wm04")
 centered = false
+
+[node name="Back" type="Button" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 24.0
+offset_right = 111.0
+offset_bottom = 99.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_es4n0")
+icon = ExtResource("3_f4mfi")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = SubResource("GDScript_gis3k")
 
 [node name="SettingsHeader" type="Label" parent="."]
 layout_mode = 1
@@ -229,6 +271,7 @@ popup/item_1/text = "English"
 popup/item_1/id = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -256,6 +299,7 @@ shortcut = SubResource("Shortcut_h68ux")
 text = " Speichern 
 "
 
+[connection signal="pressed" from="ColorRect2/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="VBoxContainer2/VolumeContainer/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/DifficultyContainer/MarginContainer/DifficultySlider" to="." method="_on_difficulty_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

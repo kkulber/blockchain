@@ -14,10 +14,15 @@ func _process(delta: float) -> void:
 
 
 func _on_button_settings_pressed() -> void:
-	Settings.show()
-	self.hide()
-	Menu.hide()
+	Globals.load_scene(Globals.settings_scene)
+	#Settings.show()
+	#self.hide()
+	#Menu.hide()
 
 
 func _on_button_lexikon_pressed() -> void:
-	Globals.load_scene("res://scenes/lexikon.tscn")
+	Globals.load_scene(Globals.lexikon_scene)
+
+
+func _on_button_start_pressed() -> void:
+	Globals.load_scene(Globals.layer1_scene)

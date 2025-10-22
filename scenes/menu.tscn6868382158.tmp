@@ -143,6 +143,5 @@ text = "Copyright & Lizenz	"
 label_settings = SubResource("LabelSettings_yqeox")
 horizontal_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button_Lexikon" to="." method="_on_button_lexikon_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]

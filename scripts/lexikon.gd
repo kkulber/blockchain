@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_back_pressed() -> void:
-	Globals.load_scene("res://scenes/menu.tscn")
+	Globals.load_scene(Globals.menu_scene)
