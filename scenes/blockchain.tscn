@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3laybinld3h2"]
+
+[ext_resource type="Script" uid="uid://c6k45nes01tlv" path="res://scripts/create_blockchain_network.gd" id="1_ce7gn"]
+
+[node name="Global" type="Node2D"]
+script = ExtResource("1_ce7gn")
