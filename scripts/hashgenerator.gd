@@ -5,7 +5,7 @@ var hash_dad
 var has_generated_hash = false
 
 # Load the godot icon
-var my_texture = load("res://icon.svg")
+var my_texture = load("res://images/Hash.png")
 
 func _ready() -> void:
 	hash_dad = $HashDad

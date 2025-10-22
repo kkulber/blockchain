@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp0miaek6fwkg"]
+[gd_scene load_steps=8 format=3 uid="uid://dp0miaek6fwkg"]
 
 [ext_resource type="Script" uid="uid://ck2oqndpp715y" path="res://scripts/main.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://delhpy0pbys1y" path="res://scenes/dad_rect.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dfgts0ldpgl01" path="res://scenes/dad_square.tscn" id="3_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://b5sdp070bqm5q" path="res://icon.svg" id="4_tefeu"]
+[ext_resource type="Texture2D" uid="uid://bq0chd0f1jldb" path="res://images/PreviousHash.png" id="4_tefeu"]
+[ext_resource type="Texture2D" uid="uid://beaxmuatvovju" path="res://images/Data.png" id="5_o6xl0"]
 [ext_resource type="Script" uid="uid://cly6rpvjpmjry" path="res://scripts/hashgenerator.gd" id="6_tefeu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
@@ -88,7 +89,7 @@ offset_left = 423.0
 offset_top = 1318.0
 offset_right = 623.0
 offset_bottom = 1418.0
-texture = ExtResource("4_tefeu")
+texture = ExtResource("5_o6xl0")
 
 [node name="DataInput" type="LineEdit" parent="CanvasLayer"]
 offset_left = 336.0

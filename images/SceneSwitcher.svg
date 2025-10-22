@@ -1,0 +1,14 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 345 239" width="739" height="512">
+	<defs>
+		<radialGradient id="g1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(263,0,0,263,268,119.5)">
+			<stop offset="0" stop-color="#000000"/>
+			<stop offset="1" stop-color="#ffffff"/>
+		</radialGradient>
+	</defs>
+	<style>
+		.s0 { fill: #be0000;stroke: url(#g1);stroke-miterlimit:100;stroke-width: 9.2 } 
+		.s1 { fill: #be0000 } 
+	</style>
+	<path id="Form 1" fill-rule="evenodd" class="s0" d="m45 5h446c22.09 0 40 17.91 40 40v149c0 22.09-17.91 40-40 40h-446c-22.09 0-40-17.91-40-40v-149c0-22.09 17.91-40 40-40z"/>
+	<path id="Form 2" class="s1" d=""/>
+</svg>
