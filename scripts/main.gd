@@ -1,37 +1,56 @@
 extends Node2D
+
+# Keep track of your generated block
+var block_data = "Testdaten"
+var block_last_hash = "Letzter Testhash"
+var block_hash = "Aktueller Testhash"
+
+# Declare all nodes used later
+var block_label_last_hash_original
+var block_label_last_hash_link
+var block_label_hash
+var block_label_data 
+
+var data_dad
+var previous_pointer_dad
+var hashgenerator_shown = false
+
+func show_hashgenerator() -> void:
+	# Show the hashgenerator 
+	$CanvasLayer/Hashgenerator.visible = true 
+	hashgenerator_shown = true
 	
-var counter = 0	
-var source_image = load("res://icon.svg")
+func hide_hashgenerator() -> void:
+	# Hide the hashgenerator 
+	$CanvasLayer/Hashgenerator.visible = false	
+	hashgenerator_shown = false
+
+func _ready() -> void:
+	# Import nodes
+	block_label_last_hash_original = $CanvasLayer/Labels/BlockLastHashOriginal
+	block_label_last_hash_link = $CanvasLayer/Labels/BlockLastHashLink
+	block_label_hash = $CanvasLayer/Labels/BlockHash
+	block_label_data = $CanvasLayer/Labels/BlockData
 	
-func _ready():
-	# Prepare signals
-	$CanvasLayer/Block/Add.pressed.connect(add_block)
+	# Setup labels
+	block_label_last_hash_original.text = block_last_hash
+	block_label_last_hash_link.text = block_last_hash
+	block_label_data.text = block_data
+	block_label_hash.text = block_hash
 	
-	# Reset counter label
-	$CanvasLayer/Counter/Label.text = str(counter)
+	data_dad = $CanvasLayer/YourBlock/data_rect
+	previous_pointer_dad = $CanvasLayer/YourBlock/pointer_square
 	
-# Function called when a block gets added
-func add_block():
-	# Increase counter
-	counter += 1
-	$CanvasLayer/Counter/Label.text = str(counter)
-	
-	# Reset block
-	$CanvasLayer/Block/Data_DaD_Block.texture = null
-	$CanvasLayer/Block/Pointer_DaD_Block.texture = null
-	$CanvasLayer/Block/Hash_DaD_Block.texture = null
-	
-	# Add new blocks
-	$CanvasLayer/TextureRect.texture = source_image
-	$CanvasLayer/TextureRect2.texture = source_image
-	$CanvasLayer/TextureRect3.texture = source_image
-	
+	# Turns off the hashgenerator
+	hide_hashgenerator()
+
 func _process(delta: float) -> void:
-	if $CanvasLayer/Block/Data_DaD_Block.texture and $CanvasLayer/Block/Pointer_DaD_Block.texture and $CanvasLayer/Block/Hash_DaD_Block.texture:
-		$CanvasLayer/Block/Panel.modulate = Color.GREEN
-		$CanvasLayer/Block/Deckel.visible = true
-		$CanvasLayer/Block/Add.visible = true
-	else:
-		$CanvasLayer/Block/Panel.modulate = Color.RED
-		$CanvasLayer/Block/Deckel.visible = false
-		$CanvasLayer/Block/Add.visible = false
+	# Check each frame if previous hash and data dad
+	# have been set
+	if data_dad.texture and previous_pointer_dad.texture and not hashgenerator_shown:
+		show_hashgenerator()
+
+# This function is called when the text inside
+# the data input field changes
+# func _on_data_input_text_changed(new_text: String) -> void:
+# 	block_label_hash.text = new_text
