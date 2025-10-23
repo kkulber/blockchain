@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfgts0ldpgl01"]
+[gd_scene load_steps=3 format=3 uid="uid://dfgts0ldpgl01"]
 
 [ext_resource type="Script" uid="uid://bauv76m8qya0s" path="res://scripts/texture_rect.gd" id="1_lx3dq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq2ti"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
 
 [node name="TextureRect" type="TextureRect"]
 custom_minimum_size = Vector2(100, 100)
@@ -16,3 +28,4 @@ layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qq2ti")
