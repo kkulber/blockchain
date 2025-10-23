@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqy41xvuvy7cl"]
+
+[ext_resource type="Texture2D" uid="uid://dlapl8sh6matk" path="res://images/valid-machine.png" id="1_jbgui"]
+[ext_resource type="Script" uid="uid://c3isuc66xivfn" path="res://scripts/layer3-machine.gd" id="2_x3uui"]
+
+[node name="layer3-machine" type="Sprite2D"]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_jbgui")
+script = ExtResource("2_x3uui")

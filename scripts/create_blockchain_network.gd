@@ -3,14 +3,14 @@ extends Node
 var blockchain_machines = []
 var used_names = []
 
-const AMOUNT_MACHINES = 1
-const LENGTH_CHAIN_MIN = 2
-const LENGTH_CHAIN_MAX =  2
+const AMOUNT_MACHINES = 13
+const LENGTH_CHAIN_MIN = 15
+const LENGTH_CHAIN_MAX =  30
 const TRANSFER_MIN = 1
 const TRANSFER_MAX = 500
-const PROBABILITY_BREAK = 0.00
+const PROBABILITY_BREAK = 0.05
 const MODIFIED_CHAINS_MIN = 1
-const MODIFIED_CHAINS_MAX = 1
+const MODIFIED_CHAINS_MAX = 4
 
 const EURO = "€"
 const CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -79,7 +79,6 @@ func _ready() -> void:
 	# generate a random blockchain
 	var chain_length = rng.randi_range(LENGTH_CHAIN_MIN, LENGTH_CHAIN_MAX)
 	var broken_machines = []
-	var previous_hash = "0"
 	for i in range(chain_length):
 		
 		# randomly break blockchains of singular machines
@@ -111,5 +110,5 @@ func _ready() -> void:
 	validate_blockchain(0)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+#	pass
