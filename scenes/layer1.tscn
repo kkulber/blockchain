@@ -55,7 +55,7 @@ font_color = Color(0.96862745, 0.20784314, 0.05490196, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w86gj"]
 font_size = 24
-font_color = Color(0.23137255, 0.85490197, 0.8235294, 1)
+font_color = Color(0.4862745, 0.8039216, 0.5058824, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofi4m"]
 content_margin_left = 4.0

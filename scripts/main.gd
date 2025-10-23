@@ -69,12 +69,15 @@ func _process(delta: float) -> void:
 		questcontainer.trigger_quest_with_index(6)
 		if input_field_text != data_visualizer_label.text:
 			data_visualizer_label.text = input_field_text
-	elif data_visualizer_label.text != "": data_visualizer_label.text = ""
+	elif data_visualizer_label.text != "": 
+		data_visualizer_label.text = ""
 	
-	# Check if previous hash has been set and label is not updated
-	if previous_pointer_dad.texture and previous_hash_visualizer_label.text != block_previous_hash:
-		previous_hash_visualizer_label.text = block_previous_hash
-	elif not previous_pointer_dad.texture and previous_hash_visualizer_label.text != "": previous_hash_visualizer_label.text = ""
+	# Check if previous hash has been set 
+	if previous_pointer_dad.texture:
+		if previous_hash_visualizer_label.text != block_previous_hash:
+			previous_hash_visualizer_label.text = block_previous_hash
+	elif not previous_pointer_dad.texture and previous_hash_visualizer_label.text != "": 
+		previous_hash_visualizer_label.text = ""
 	
 	# Check each frame if previous hash and data dad
 	# have been set
