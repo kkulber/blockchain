@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://davpcfmndjtos"]
+[gd_scene load_steps=12 format=3 uid="uid://davpcfmndjtos"]
 
 [ext_resource type="Script" uid="uid://b8p2dijf3gad" path="res://scripts/settings.gd" id="1_mvpff"]
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_6wm04"]
 [ext_resource type="LabelSettings" uid="uid://c2qk7n04an7nk" path="res://art/default_font.tres" id="2_r6d6q"]
 [ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="3_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://cg342d62xwxfu" path="res://art/sliders.svg" id="4_es4n0"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_2h877"]
 action = &"start_game"
@@ -101,6 +102,10 @@ icon_alignment = 1
 expand_icon = true
 script = SubResource("GDScript_gis3k")
 
+[node name="Sliders" type="Sprite2D" parent="ColorRect2"]
+position = Vector2(330, 60)
+texture = ExtResource("4_es4n0")
+
 [node name="SettingsHeader" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -126,10 +131,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -272.5
-offset_top = -225.5
-offset_right = 272.5
-offset_bottom = 225.5
+offset_left = -280.0
+offset_top = -252.0
+offset_right = 280.0
+offset_bottom = 252.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -149,7 +154,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.454902)
 theme_override_font_sizes/font_size = 40
 text = "Dark Mode"
 label_settings = ExtResource("2_r6d6q")
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -157,12 +162,11 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer2/HBoxContainer2/MarginContainer"]
+[node name="Button_DarkMode" type="Button" parent="VBoxContainer2/HBoxContainer2/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-theme_override_font_sizes/font_size = 24
-text = "
-"
+theme_override_font_sizes/font_size = 50
+text = "Deaktiviert"
 
 [node name="DifficultyContainer" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
@@ -358,6 +362,7 @@ text = " Speichern
 "
 
 [connection signal="pressed" from="ColorRect2/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer2/MarginContainer/Button_DarkMode" to="." method="_on_button_dark_mode_pressed"]
 [connection signal="value_changed" from="VBoxContainer2/DifficultyContainer/MarginContainer/DifficultySlider" to="." method="_on_difficulty_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/VolumeContainer/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/SoundeffectContainer/MarginContainer/EffectSlider" to="." method="_on_volume_slider_value_changed"]
