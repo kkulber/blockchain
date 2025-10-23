@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwdtjoyxi8shh"]
+
+[ext_resource type="Script" uid="uid://d2th4d11ipdn7" path="res://scripts/layer_2.gd" id="1_ag67j"]
+[ext_resource type="Texture2D" uid="uid://p642krb7d875" path="res://art/architecture.png" id="1_xjrqs"]
+[ext_resource type="Texture2D" uid="uid://dl22gfeskivr4" path="res://art/work-in-progress.png" id="2_fcwyc"]
+[ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="3_eq7jh"]
+[ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="4_ag67j"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_2h877"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_t6bqv"]
+events = [SubResource("InputEventAction_2h877")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tsxve"]
+font_size = 120
+
+[node name="Layer2" type="Node2D"]
+script = ExtResource("1_ag67j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.8539175, 0.8539175, 0.8539175, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Architecture" type="Sprite2D" parent="CanvasLayer/VBoxContainer"]
+position = Vector2(540, 1605)
+texture = ExtResource("1_xjrqs")
+
+[node name="WorkInProgress" type="Sprite2D" parent="CanvasLayer/VBoxContainer"]
+position = Vector2(540, 1078)
+texture = ExtResource("2_fcwyc")
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 180)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_vertical = 0
+mouse_filter = 2
+color = Color(0.75686276, 0.047058824, 0.14509805, 1)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="JguLogo" type="Sprite2D" parent="CanvasLayer/ColorRect2/AspectRatioContainer"]
+position = Vector2(-76, -37.999992)
+scale = Vector2(0.852, 0.83)
+texture = ExtResource("3_eq7jh")
+centered = false
+
+[node name="Back_layer2" type="Button" parent="CanvasLayer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -76.0
+offset_right = 95.0
+offset_bottom = -1.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_t6bqv")
+icon = ExtResource("4_ag67j")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="GuideHeader" type="Label" parent="CanvasLayer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.5
+offset_top = -82.5
+offset_right = 270.5
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 72
+text = "Ebene 2"
+label_settings = SubResource("LabelSettings_tsxve")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 170.0
+offset_top = 711.0
+offset_right = 511.33337
+offset_bottom = 1070.1902
+grow_horizontal = 2
+rotation = 3.1415927
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "
+"
+icon = ExtResource("4_ag67j")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Back_layer2" to="." method="_on_back_layer_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

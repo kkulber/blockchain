@@ -30,6 +30,11 @@ func _ready() -> void:
 	# color based on validity
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
+
+
+func _on_back_pressed() -> void:
+	Globals.load_scene(Globals.menu_scene)

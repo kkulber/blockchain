@@ -25,7 +25,7 @@ func _on_button_lexikon_pressed() -> void:
 
 
 func _on_button_start_pressed() -> void:
-	Globals.load_scene(Globals.guide_scene)
+	Globals.load_scene(Globals.layer3_scene)
 
 
 func _on_button_licensing_pressed() -> void:
