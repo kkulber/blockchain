@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dp0miaek6fwkg"]
+[gd_scene load_steps=18 format=3 uid="uid://dp0miaek6fwkg"]
 
 [ext_resource type="Script" uid="uid://ck2oqndpp715y" path="res://scripts/main.gd" id="1_x2k1u"]
 [ext_resource type="Texture2D" uid="uid://bkqbr6erkgyeg" path="res://images/ellipse.png" id="2_y7lky"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://delhpy0pbys1y" path="res://scenes/dad_rect.tscn" id="5_hr7qw"]
 [ext_resource type="Texture2D" uid="uid://vcm8e5yfxkdg" path="res://images/square_red.svg" id="6_y7lky"]
 [ext_resource type="Script" uid="uid://cly6rpvjpmjry" path="res://scripts/hashgenerator.gd" id="7_g43gi"]
+[ext_resource type="Texture2D" uid="uid://boigv405skmno" path="res://images/arrow.png" id="7_glvh6"]
+[ext_resource type="Texture2D" uid="uid://bi7022w1qsnoc" path="res://images/curved-arrow.png" id="8_hr7qw"]
 [ext_resource type="Texture2D" uid="uid://eqpqpk0qour2" path="res://images/square_green.svg" id="8_ofi4m"]
 [ext_resource type="Script" uid="uid://sxao0ue5uobb" path="res://scripts/questcontainer.gd" id="9_dmiet"]
 [ext_resource type="Texture2D" uid="uid://dleifprro8sbs" path="res://images/right-arrow.png" id="9_glvh6"]
@@ -21,6 +23,18 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.08627451)
 shadow_offset = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glvh6"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_choun"]
 font_size = 24
@@ -114,6 +128,7 @@ texture = ExtResource("6_y7lky")
 metadata/_edit_use_anchors_ = true
 
 [node name="data_rect" parent="CanvasLayer/LastBlock/VBoxContainer" instance=ExtResource("5_hr7qw")]
+visible = false
 layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -128,6 +143,34 @@ text = "Dein Block"
 label_settings = SubResource("LabelSettings_tbgi4")
 uppercase = true
 
+[node name="DataLabel" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 782.0
+offset_top = 1091.0
+offset_right = 1016.0
+offset_bottom = 1141.0
+text = "Daten"
+label_settings = SubResource("LabelSettings_tbgi4")
+uppercase = true
+
+[node name="HashLabel" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 815.0
+offset_top = 864.0
+offset_right = 1049.0
+offset_bottom = 914.0
+text = "Hash"
+label_settings = SubResource("LabelSettings_tbgi4")
+uppercase = true
+
+[node name="PreviousPointerHash" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 190.0
+offset_top = 1109.0
+offset_right = 341.0
+offset_bottom = 1212.0
+text = "Letzter
+Hash"
+label_settings = SubResource("LabelSettings_tbgi4")
+uppercase = true
+
 [node name="LabelLastBlock" type="Label" parent="CanvasLayer/Labels"]
 offset_left = 20.0
 offset_top = 741.0
@@ -137,33 +180,24 @@ text = "Letzter Block"
 label_settings = SubResource("LabelSettings_tbgi4")
 uppercase = true
 
-[node name="BlockLastHashOriginal" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 47.0
-offset_top = 993.0
-offset_right = 197.0
-offset_bottom = 1027.0
-label_settings = SubResource("LabelSettings_tbgi4")
+[node name="HashArrow" type="Sprite2D" parent="CanvasLayer/Labels"]
+position = Vector2(716, 879.99994)
+rotation = 0.5235988
+scale = Vector2(0.27246088, 0.27246088)
+texture = ExtResource("8_hr7qw")
 
-[node name="BlockLastHashLink" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 253.0
-offset_top = 910.0
-offset_right = 403.0
-offset_bottom = 944.0
-label_settings = SubResource("LabelSettings_tbgi4")
+[node name="PreviousHashArrow" type="Sprite2D" parent="CanvasLayer/Labels"]
+position = Vector2(328, 1032)
+rotation = -1.5707964
+scale = Vector2(0.27246088, 0.27246088)
+texture = ExtResource("8_hr7qw")
+flip_h = true
 
-[node name="BlockHash" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 623.0
-offset_top = 801.0
-offset_right = 773.0
-offset_bottom = 835.0
-label_settings = SubResource("LabelSettings_tbgi4")
-
-[node name="BlockData" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 442.0
-offset_top = 1101.0
-offset_right = 592.0
-offset_bottom = 1135.0
-label_settings = SubResource("LabelSettings_tbgi4")
+[node name="DataArrow" type="Sprite2D" parent="CanvasLayer/Labels"]
+position = Vector2(699, 1110.0001)
+rotation = 1.0471976
+scale = Vector2(0.23078366, 0.23078366)
+texture = ExtResource("7_glvh6")
 
 [node name="Hashgenerator" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("7_g43gi")
@@ -187,29 +221,13 @@ offset_bottom = 678.0
 position = Vector2(403, 1576)
 
 [node name="EditorLabel" type="Label" parent="CanvasLayer/Editor/Node2D"]
-offset_left = -338.0
-offset_top = -248.0
-offset_right = -197.0
-offset_bottom = -198.0
-text = "Editor"
+offset_left = -366.0
+offset_top = -275.0
+offset_right = -118.0
+offset_bottom = -225.0
+text = "Dateneditor"
 label_settings = SubResource("LabelSettings_tbgi4")
 uppercase = true
-
-[node name="RightHSeparator" type="HSeparator" parent="CanvasLayer/Editor/Node2D"]
-modulate = Color(0, 0, 0, 1)
-offset_left = -200.0
-offset_top = -248.0
-offset_right = 651.0
-offset_bottom = -235.5
-scale = Vector2(1, 4)
-
-[node name="RightHSeparator2" type="HSeparator" parent="CanvasLayer/Editor/Node2D"]
-modulate = Color(0, 0, 0, 1)
-offset_left = -387.0
-offset_top = -248.0
-offset_right = -347.0
-offset_bottom = -235.5
-scale = Vector2(1, 4)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Editor/Node2D"]
 anchors_preset = 8
@@ -218,9 +236,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -366.0
-offset_top = -152.0
+offset_top = -225.0
 offset_right = 556.0
-offset_bottom = -52.0
+offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -246,14 +264,15 @@ script = ExtResource("9_dmiet")
 [node name="Background" type="Panel" parent="CanvasLayer/Questcontainer/Node2D"]
 offset_left = 290.0
 offset_top = 105.0
-offset_right = 1101.0
+offset_right = 1165.0
 offset_bottom = 416.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_glvh6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Questcontainer/Node2D"]
 offset_left = 305.0
-offset_top = 121.0
+offset_top = 134.0
 offset_right = 1067.0
-offset_bottom = 300.0
+offset_bottom = 306.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Questcontainer/Node2D/HBoxContainer"]
 layout_mode = 2

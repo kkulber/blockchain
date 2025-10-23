@@ -1,0 +1,3 @@
+-- Alle Quellen für benutzte Icons von www.flaticon.com --
+
+<a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by ChilliColor - Flaticon</a><a href="https://www.flaticon.com/free-icons/curved-arrow" title="curved arrow icons">Curved arrow icons created by Creartive - Flaticon</a>

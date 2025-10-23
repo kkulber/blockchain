@@ -6,11 +6,6 @@ var block_last_hash = "Letzter Testhash"
 var block_hash = "Aktueller Testhash"
 
 # Declare all nodes used later
-var block_label_last_hash_original
-var block_label_last_hash_link
-var block_label_hash
-var block_label_data 
-
 var data_dad
 var previous_pointer_dad
 var hashgenerator_shown = false
@@ -31,23 +26,11 @@ func hide_hashgenerator() -> void:
 	hashgenerator_shown = false
 
 func _ready() -> void:
-	# Import nodes
-	block_label_last_hash_original = $CanvasLayer/Labels/BlockLastHashOriginal
-	block_label_last_hash_link = $CanvasLayer/Labels/BlockLastHashLink
-	block_label_hash = $CanvasLayer/Labels/BlockHash
-	block_label_data = $CanvasLayer/Labels/BlockData
-	
 	data_dad = $CanvasLayer/YourBlock/VBoxContainer/data_rect
 	previous_pointer_dad = $CanvasLayer/YourBlock/VBoxContainer/HBoxContainer/pointer_square
 	hash_dad = $CanvasLayer/YourBlock/VBoxContainer/HBoxContainer/hash_square
 	
 	questcontainer = $CanvasLayer/Questcontainer
-	
-	# Setup labels
-	block_label_last_hash_original.text = block_last_hash
-	block_label_last_hash_link.text = block_last_hash
-	block_label_data.text = block_data
-	block_label_hash.text = block_hash
 	
 	# Turns off the hashgenerator
 	hide_hashgenerator()
