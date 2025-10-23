@@ -78,7 +78,7 @@ scale = Vector2(0.53139013, 0.53539824)
 texture = ExtResource("2_paukg")
 centered = false
 
-[node name="SettingsHeader" type="Label" parent="."]
+[node name="LexikonHeader" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

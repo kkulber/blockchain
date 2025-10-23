@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="1_yqeox"]
 
 [sub_resource type="SystemFont" id="SystemFont_vjb58"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_vjb58"]
 font = SubResource("SystemFont_vjb58")
