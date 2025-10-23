@@ -1,0 +1,149 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4wi4upsghidd"]
+
+[ext_resource type="Script" uid="uid://msx8aw72um6d" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="1_yqeox"]
+
+[sub_resource type="SystemFont" id="SystemFont_vjb58"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_vjb58"]
+font = SubResource("SystemFont_vjb58")
+font_size = 75
+font_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yqeox"]
+font_size = 20
+font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 0
+color = Color(0.75686276, 0.047058824, 0.14509805, 1)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="JguLogo" type="Sprite2D" parent="VBoxContainer/ColorRect/AspectRatioContainer"]
+position = Vector2(-5, -1)
+scale = Vector2(0.53139013, 0.53539824)
+texture = ExtResource("1_yqeox")
+centered = false
+
+[node name="Container" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="Container" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Blockchains
+erklärt"
+label_settings = SubResource("LabelSettings_vjb58")
+horizontal_alignment = 1
+
+[node name="Container2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Button_Start" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Guide"
+
+[node name="Container3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Button_Lexikon" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Lexikon"
+
+[node name="Container4" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Button_Settings" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Einstellungen"
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+text = "Copyright & Lizenz	"
+label_settings = SubResource("LabelSettings_yqeox")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button_Lexikon" to="." method="_on_button_lexikon_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]

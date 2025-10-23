@@ -1,0 +1,365 @@
+[gd_scene load_steps=11 format=3 uid="uid://davpcfmndjtos"]
+
+[ext_resource type="Script" uid="uid://b8p2dijf3gad" path="res://scripts/settings.gd" id="1_mvpff"]
+[ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_6wm04"]
+[ext_resource type="LabelSettings" uid="uid://c2qk7n04an7nk" path="res://art/default_font.tres" id="2_r6d6q"]
+[ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="3_f4mfi"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_2h877"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_es4n0"]
+events = [SubResource("InputEventAction_2h877")]
+
+[sub_resource type="GDScript" id="GDScript_gis3k"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_back_lexikon_pressed() -> void:
+	
+	pass # Replace with function body.
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_r6d6q"]
+font_size = 75
+font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[sub_resource type="InputEventAction" id="InputEventAction_83j8s"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_h68ux"]
+events = [SubResource("InputEventAction_83j8s")]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mvpff")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 0
+offset_right = 660.0
+offset_bottom = 120.0
+size_flags_vertical = 0
+color = Color(0.75686276, 0.047058824, 0.14509805, 1)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="JguLogo" type="Sprite2D" parent="ColorRect2/AspectRatioContainer"]
+position = Vector2(-5, -1)
+scale = Vector2(0.53139013, 0.53539824)
+texture = ExtResource("2_6wm04")
+centered = false
+
+[node name="Back" type="Button" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 24.0
+offset_right = 111.0
+offset_bottom = 99.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_es4n0")
+icon = ExtResource("3_f4mfi")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = SubResource("GDScript_gis3k")
+
+[node name="SettingsHeader" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 120.0
+offset_right = 240.0
+offset_bottom = 247.99986
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Einstellungen"
+label_settings = SubResource("LabelSettings_r6d6q")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.5
+offset_top = -225.5
+offset_right = 272.5
+offset_bottom = 225.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Text" type="Label" parent="VBoxContainer2/HBoxContainer2/MarginContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 0.454902)
+theme_override_font_sizes/font_size = 40
+text = "Dark Mode"
+label_settings = ExtResource("2_r6d6q")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer2/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/font_size = 24
+text = "
+"
+
+[node name="DifficultyContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/DifficultyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DifficultyText" type="Label" parent="VBoxContainer2/DifficultyContainer/MarginContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Textgröße "
+label_settings = ExtResource("2_r6d6q")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/DifficultyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DifficultySlider" type="HSlider" parent="VBoxContainer2/DifficultyContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Set difficulty. 
+Ranges from 1 (easy) to 3 (hard). 
+This effects mob spawn rate, 
+speed and total mobs alive."
+min_value = 1.0
+max_value = 3.0
+value = 2.0
+rounded = true
+
+[node name="LanguageContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/LanguageContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DifficultyText" type="Label" parent="VBoxContainer2/LanguageContainer/MarginContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Sprache "
+label_settings = ExtResource("2_r6d6q")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/LanguageContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer2/LanguageContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "Deutsch"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+
+[node name="Control" type="Control" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer2/Control"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[node name="SoundsvolumeHeaderText" type="Label" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Lautstärke"
+label_settings = ExtResource("2_r6d6q")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VolumeContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/VolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VolumeText" type="Label" parent="VBoxContainer2/VolumeContainer/MarginContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Musik "
+label_settings = ExtResource("2_r6d6q")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/VolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer2/VolumeContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Set volume from 0-100%"
+min_value = -80.0
+max_value = 24.0
+rounded = true
+
+[node name="SoundeffectContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/SoundeffectContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EffectText" type="Label" parent="VBoxContainer2/SoundeffectContainer/MarginContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Effekt "
+label_settings = ExtResource("2_r6d6q")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/SoundeffectContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EffectSlider" type="HSlider" parent="VBoxContainer2/SoundeffectContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Set volume from 0-100%"
+min_value = -80.0
+max_value = 24.0
+rounded = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -144.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_h68ux")
+text = " Zurück "
+
+[node name="Save" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+disabled = true
+shortcut = SubResource("Shortcut_h68ux")
+text = " Speichern 
+"
+
+[connection signal="pressed" from="ColorRect2/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="VBoxContainer2/DifficultyContainer/MarginContainer/DifficultySlider" to="." method="_on_difficulty_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/VolumeContainer/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/SoundeffectContainer/MarginContainer/EffectSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Save" to="." method="_on_save_pressed"]

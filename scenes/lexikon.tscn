@@ -1,0 +1,333 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmnxtwg3yeymx"]
+
+[ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_paukg"]
+[ext_resource type="LabelSettings" uid="uid://c2qk7n04an7nk" path="res://art/default_font.tres" id="3_k8g70"]
+[ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="4_k8g70"]
+[ext_resource type="Script" uid="uid://b0w3qxrcohdy" path="res://scripts/lexikon.gd" id="4_paukg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m10ki"]
+font_size = 75
+
+[sub_resource type="InputEventAction" id="InputEventAction_2h877"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_h68ux"]
+events = [SubResource("InputEventAction_2h877")]
+
+[sub_resource type="GDScript" id="GDScript_m10ki"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_back_lexikon_pressed() -> void:
+	
+	pass # Replace with function body.
+"
+
+[node name="Lexikon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_paukg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8539175, 0.8539175, 0.8539175, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 0
+offset_right = 660.0
+offset_bottom = 120.0
+size_flags_vertical = 0
+color = Color(0.75686276, 0.047058824, 0.14509805, 1)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="JguLogo" type="Sprite2D" parent="ColorRect2/AspectRatioContainer"]
+position = Vector2(-5, -1)
+scale = Vector2(0.53139013, 0.53539824)
+texture = ExtResource("2_paukg")
+centered = false
+
+[node name="LexikonHeader" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -179.0
+offset_right = 179.0
+offset_bottom = 119.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Lexikon	"
+label_settings = SubResource("LabelSettings_m10ki")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 121.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_behavior_recursive = 1
+
+[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer2/VBoxContainer"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+text = "Block	"
+label_settings = ExtResource("3_k8g70")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer2/VBoxContainer"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+text = "Ein Block einer Blockchain besteht aus Inhalten, dem Hash des vorherigen Blocks und seinem eigenen Hash."
+fit_content = true
+scroll_active = false
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer2/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/VBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer2/VBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+text = "Hashwert"
+label_settings = ExtResource("3_k8g70")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer2/VBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+text = "Ein Hashwert ist eine Datensatz einer bestimmten Länge(z.B. 16 Bit, 32 Bit, …) und dient zur Verifizierung von Daten und Datenübertragungen."
+fit_content = true
+scroll_active = false
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer2/VBoxContainer2"]
+light_mask = 0
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/VBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer2/VBoxContainer3"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+text = "Hashfunktion"
+label_settings = ExtResource("3_k8g70")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer2/VBoxContainer3"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+text = "In der Hashfunktion werden Inhalte eines Blocks und von Minern erschaffene noncen verwendet um Hashes zu erstellen. Diese müssen eine bestimmte Schwierigkeit haben und ein Unikat sein um in der Blockchain benutzt zu werden."
+fit_content = true
+scroll_active = false
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer2/VBoxContainer3"]
+light_mask = 0
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/VBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer2/VBoxContainer4"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+text = "Miner"
+label_settings = ExtResource("3_k8g70")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer2/VBoxContainer4"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+text = "Funktionen die noncen benutzen um den Output der Hashfunktion zu ändern indem sie neue noncen erstellen.
+"
+fit_content = true
+scroll_active = false
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer2/VBoxContainer4"]
+light_mask = 0
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ScrollContainer/VBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer2/VBoxContainer5"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+text = "Nonce"
+label_settings = ExtResource("3_k8g70")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer2/VBoxContainer5"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+text = "Eine Nonce bedeutet im englischen „number used once“ und ist eine Zahl die beim Miningprozess benutzt wird um Hashes zu finden.
+"
+fit_content = true
+scroll_active = false
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer2/VBoxContainer5"]
+light_mask = 0
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="ScrollContainer/VBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer2/VBoxContainer6"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+text = "Validierungsprozess"
+label_settings = ExtResource("3_k8g70")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer2/VBoxContainer6"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+text = "Die Validierung ist ein dezentraler Prozess, welcher von einem Netzwerk aus Endgeräten ausgeführt wird. Dabei wird eine Blockchain mit einem neuen Block an alle Nutzer des Systems geschickt, diese wird durchlaufen und jeder einzelne Hash in der Kette verglichen. Sollten diese übereinstimmen, wird der neue Block hinzugefügt und die Blockchain bei allen Nutzern aktualisiert.
+"
+fit_content = true
+scroll_active = false
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer2/VBoxContainer6"]
+light_mask = 0
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 24.0
+offset_right = 111.0
+offset_bottom = 99.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_h68ux")
+icon = ExtResource("4_k8g70")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = SubResource("GDScript_m10ki")
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
