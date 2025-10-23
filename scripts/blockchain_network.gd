@@ -8,9 +8,9 @@ const LENGTH_CHAIN_MIN = 15
 const LENGTH_CHAIN_MAX =  30
 const TRANSFER_MIN = 1
 const TRANSFER_MAX = 500
-const PROBABILITY_BREAK = 0.05
+const PROBABILITY_BREAK = 0.025
 const MODIFIED_CHAINS_MIN = 1
-const MODIFIED_CHAINS_MAX = 4
+const MODIFIED_CHAINS_MAX = 2
 
 const EURO = "€"
 const CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -43,7 +43,7 @@ func correct_content_format(content):
 	return content_format.search(content) != null
 
 # function to validate the blockchain of a machine
-func validate_blockchain(id):
+func is_valid_blockchain(id):
 	var blockchain = blockchain_machines[id]["blockchain"]
 	for block_id in range(blockchain.size() - 1, -1, -1):
 		if !correct_content_format(blockchain[block_id]["content"]) || \
@@ -106,8 +106,6 @@ func _ready() -> void:
 		if rng.randi_range(0, 1) == 0:
 			broken_machine["blockchain"][broken_block_id]["hash"] = \
 			hash_block(broken_machine["blockchain"][broken_block_id]["content"], broken_machine["blockchain"][broken_block_id]["previous_hash"])
-	
-	validate_blockchain(0)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

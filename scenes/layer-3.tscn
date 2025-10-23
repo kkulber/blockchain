@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://du68my5x1pw7v"]
+
+[ext_resource type="Texture2D" uid="uid://cw1318sn1764e" path="res://images/layer3-network.png" id="1_bqwdm"]
+[ext_resource type="Script" uid="uid://cyr6n0vap4alw" path="res://scripts/layer-3.gd" id="2_6dgsa"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Network" type="Sprite2D" parent="."]
+position = Vector2(327, 629)
+rotation = 1.5707964
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_bqwdm")
+script = ExtResource("2_6dgsa")
