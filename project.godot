@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="blockchain-projekt"
-run/main_scene="uid://c4wi4upsghidd"
+run/main_scene="uid://du68my5x1pw7v"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="uid://d1kgebd0j4jop"
 
 [autoload]
 
+BlockchainNetwork="*res://scripts/blockchain_network.gd"
 Globals="*res://scripts/globals.gd"
 GlobalSettings="*res://scripts/global_settings.gd"
 Log="*res://scripts/Log.gd"
