@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c4wi4upsghidd"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Script" uid="uid://msx8aw72um6d" path="res://scripts/menu.gd" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="1_yqeox"]
 [ext_resource type="StyleBox" uid="uid://cka4ea8o0xe63" path="res://art/menu_button_style.tres" id="3_con2f"]
 [ext_resource type="StyleBox" uid="uid://du5vlt5cjusor" path="res://art/menu_button_style_pressed.tres" id="4_4ytvr"]
@@ -11,7 +11,7 @@ subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_vjb58"]
 font = SubResource("SystemFont_vjb58")
-font_size = 75
+font_size = 120
 font_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yqeox"]
@@ -70,7 +70,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 size_flags_vertical = 0
 color = Color(0.75686276, 0.047058824, 0.14509805, 1)
@@ -89,8 +89,8 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="JguLogo" type="Sprite2D" parent="VBoxContainer/ColorRect/AspectRatioContainer"]
-position = Vector2(-5, -1)
-scale = Vector2(0.53139013, 0.53539824)
+position = Vector2(-76, -37.999992)
+scale = Vector2(0.852, 0.83)
 texture = ExtResource("1_yqeox")
 centered = false
 
@@ -131,7 +131,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
 theme_override_constants/align_to_largest_stylebox = 1
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = ExtResource("3_con2f")
 theme_override_styles/pressed = ExtResource("4_4ytvr")
 theme_override_styles/pressed_mirrored = ExtResource("4_4ytvr")
@@ -140,14 +140,14 @@ theme_override_styles/hover_pressed = ExtResource("4_4ytvr")
 text = "Guide"
 
 [node name="Container3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="Button_Lexikon" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
 theme_override_constants/align_to_largest_stylebox = 1
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = ExtResource("3_con2f")
 theme_override_styles/pressed = ExtResource("4_4ytvr")
 theme_override_styles/pressed_mirrored = ExtResource("4_4ytvr")
@@ -158,7 +158,7 @@ theme_override_styles/hover_pressed_mirrored = ExtResource("4_4ytvr")
 text = "Lexikon"
 
 [node name="Container4" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="Button_Settings" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -166,7 +166,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
 theme_override_constants/align_to_largest_stylebox = 1
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = ExtResource("3_con2f")
 theme_override_styles/pressed = ExtResource("4_4ytvr")
 theme_override_styles/pressed_mirrored = ExtResource("4_4ytvr")
@@ -208,7 +208,7 @@ offset_top = -46.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Copyright & Lizenz	"
 flat = true
 
