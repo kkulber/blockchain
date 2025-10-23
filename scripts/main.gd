@@ -17,15 +17,16 @@ var hashgenerator_shown = false
 
 var hash_dad
 var block_is_complete = false
-var package_top
 
+var questcontainer
+
+# Show the hashgenerator 
 func show_hashgenerator() -> void:
-	# Show the hashgenerator 
 	$CanvasLayer/Hashgenerator.visible = true 
 	hashgenerator_shown = true
 	
+# Hide the hashgenerator 
 func hide_hashgenerator() -> void:
-	# Hide the hashgenerator 
 	$CanvasLayer/Hashgenerator.visible = false	
 	hashgenerator_shown = false
 
@@ -36,35 +37,37 @@ func _ready() -> void:
 	block_label_hash = $CanvasLayer/Labels/BlockHash
 	block_label_data = $CanvasLayer/Labels/BlockData
 	
+	data_dad = $CanvasLayer/YourBlock/VBoxContainer/data_rect
+	previous_pointer_dad = $CanvasLayer/YourBlock/VBoxContainer/HBoxContainer/pointer_square
+	hash_dad = $CanvasLayer/YourBlock/VBoxContainer/HBoxContainer/hash_square
+	
+	questcontainer = $CanvasLayer/Questcontainer
+	
 	# Setup labels
 	block_label_last_hash_original.text = block_last_hash
 	block_label_last_hash_link.text = block_last_hash
 	block_label_data.text = block_data
 	block_label_hash.text = block_hash
 	
-	data_dad = $CanvasLayer/YourBlock/data_rect
-	previous_pointer_dad = $CanvasLayer/YourBlock/pointer_square
-	hash_dad = $CanvasLayer/YourBlock/hash_square
-	
-	package_top = $CanvasLayer/YourBlock/PaketTop
-	
 	# Turns off the hashgenerator
 	hide_hashgenerator()
-	
-	# Hide the package top part
-	package_top.visible = false
 
 func _process(delta: float) -> void:
+	# Check if data dad has been set
+	if data_dad.texture:
+		questcontainer.trigger_quest_with_index(6)
+	
 	# Check each frame if previous hash and data dad
 	# have been set
 	if data_dad.texture and previous_pointer_dad.texture and not hashgenerator_shown:
 		show_hashgenerator()
+		questcontainer.trigger_quest_with_index(8)
 		
 	# Check each frame if the block is complete
 	if data_dad.texture and previous_pointer_dad.texture and hash_dad.texture and not block_is_complete:
-		package_top.visible = true
 		block_is_complete = true
-# This function is called when the text inside
-# the data input field changes
-# func _on_data_input_text_changed(new_text: String) -> void:
-# 	block_label_hash.text = new_text
+		questcontainer.trigger_quest_with_index(9)
+
+# Function called, when the user enters some text
+func _on_data_input_text_changed(new_text: String) -> void:
+	questcontainer.trigger_quest_with_index(4)

@@ -1,18 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp0miaek6fwkg"]
+[gd_scene load_steps=14 format=3 uid="uid://dp0miaek6fwkg"]
 
 [ext_resource type="Script" uid="uid://ck2oqndpp715y" path="res://scripts/main.gd" id="1_lquwl"]
-[ext_resource type="Texture2D" uid="uid://bg8ehqpa8upe6" path="res://images/Paket.svg" id="2_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://chku1xcq2qd8k" path="res://images/package.png" id="2_85g3d"]
+[ext_resource type="Texture2D" uid="uid://bkqbr6erkgyeg" path="res://images/ellipse.png" id="2_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://delhpy0pbys1y" path="res://scenes/dad_rect.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dfgts0ldpgl01" path="res://scenes/dad_square.tscn" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bq0chd0f1jldb" path="res://images/PreviousHash.png" id="4_tefeu"]
 [ext_resource type="Texture2D" uid="uid://beaxmuatvovju" path="res://images/Data.png" id="5_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://cgjmglf5fs7jg" path="res://images/PaketTop.svg" id="5_tipki"]
 [ext_resource type="Script" uid="uid://cly6rpvjpmjry" path="res://scripts/hashgenerator.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://sxao0ue5uobb" path="res://scripts/questcontainer.gd" id="9_85g3d"]
+[ext_resource type="Texture2D" uid="uid://cwx1als7pvpjg" path="res://images/quest.png" id="10_choun"]
+[ext_resource type="Texture2D" uid="uid://briaqfeif6avu" path="res://images/play-button.png" id="10_ya4ey"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
-font_size = 24
+font_size = 36
 font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.08627451)
 shadow_offset = Vector2(0, 0)
@@ -27,10 +31,12 @@ script = ExtResource("1_lquwl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.85490197, 0.85490197, 0.85490197, 1)
@@ -38,74 +44,96 @@ color = Color(0.85490197, 0.85490197, 0.85490197, 1)
 [node name="YourBlock" type="Node2D" parent="CanvasLayer"]
 position = Vector2(383, 832)
 
-[node name="Paket" type="Sprite2D" parent="CanvasLayer/YourBlock"]
-position = Vector2(129, 161)
-scale = Vector2(0.19, 0.19)
-texture = ExtResource("2_o6xl0")
+[node name="Shadow" type="Sprite2D" parent="CanvasLayer/YourBlock"]
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(131, 269)
+scale = Vector2(0.7373047, 0.41041374)
+texture = ExtResource("2_ya4ey")
 
-[node name="data_rect" parent="CanvasLayer/YourBlock" instance=ExtResource("3_jyhfs")]
-offset_left = 26.0
-offset_top = 163.0
-offset_right = 226.0
-offset_bottom = 263.0
+[node name="Package" type="Sprite2D" parent="CanvasLayer/YourBlock"]
+position = Vector2(128, 127)
+scale = Vector2(0.6035156, 0.6035156)
+texture = ExtResource("2_85g3d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/YourBlock"]
+anchors_preset = -1
+offset_left = 27.0
+offset_top = 62.0
+offset_right = 231.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/YourBlock/VBoxContainer"]
+layout_mode = 2
+
+[node name="pointer_square" parent="CanvasLayer/YourBlock/VBoxContainer/HBoxContainer" instance=ExtResource("3_tbgi4")]
+layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="pointer_square" parent="CanvasLayer/YourBlock" instance=ExtResource("3_tbgi4")]
-offset_left = 26.0
-offset_top = 59.0
-offset_right = 126.0
-offset_bottom = 159.0
+[node name="hash_square" parent="CanvasLayer/YourBlock/VBoxContainer/HBoxContainer" instance=ExtResource("3_tbgi4")]
+layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="hash_square" parent="CanvasLayer/YourBlock" instance=ExtResource("3_tbgi4")]
-offset_left = 128.0
-offset_top = 59.0
-offset_right = 228.0
-offset_bottom = 159.0
+[node name="data_rect" parent="CanvasLayer/YourBlock/VBoxContainer" instance=ExtResource("3_jyhfs")]
+layout_mode = 2
 metadata/_edit_use_anchors_ = true
-
-[node name="PaketTop" type="Sprite2D" parent="CanvasLayer/YourBlock"]
-position = Vector2(128.99998, -85)
-scale = Vector2(0.19, 0.19)
-texture = ExtResource("5_tipki")
 
 [node name="LastBlock" type="Node2D" parent="CanvasLayer"]
-position = Vector2(-17, 832)
+position = Vector2(-130, 832)
 
-[node name="Paket" type="Sprite2D" parent="CanvasLayer/LastBlock"]
-position = Vector2(127, 161)
-scale = Vector2(0.19, 0.19)
-texture = ExtResource("2_o6xl0")
+[node name="Shadow" type="Sprite2D" parent="CanvasLayer/LastBlock"]
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(133, 269)
+scale = Vector2(0.7373047, 0.41041374)
+texture = ExtResource("2_ya4ey")
 
-[node name="hash_square" parent="CanvasLayer/LastBlock" instance=ExtResource("3_tbgi4")]
-offset_left = 128.0
-offset_top = 59.0
-offset_right = 228.0
-offset_bottom = 159.0
+[node name="Package" type="Sprite2D" parent="CanvasLayer/LastBlock"]
+position = Vector2(128.00002, 133)
+scale = Vector2(0.6035156, 0.6035156)
+texture = ExtResource("2_85g3d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LastBlock"]
+anchors_preset = -1
+offset_left = 29.0
+offset_top = 62.0
+offset_right = 233.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/LastBlock/VBoxContainer"]
+layout_mode = 2
+
+[node name="pointer_square" parent="CanvasLayer/LastBlock/VBoxContainer/HBoxContainer" instance=ExtResource("3_tbgi4")]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="hash_square" parent="CanvasLayer/LastBlock/VBoxContainer/HBoxContainer" instance=ExtResource("3_tbgi4")]
+layout_mode = 2
 texture = ExtResource("4_tefeu")
 metadata/_edit_use_anchors_ = true
 
-[node name="PaketTop" type="Sprite2D" parent="CanvasLayer/LastBlock"]
-position = Vector2(127.99999, -81)
-scale = Vector2(0.19, 0.19)
-texture = ExtResource("5_tipki")
+[node name="data_rect" parent="CanvasLayer/LastBlock/VBoxContainer" instance=ExtResource("3_jyhfs")]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Labels" type="Node" parent="CanvasLayer"]
 
 [node name="LabelYourBlock" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 447.0
-offset_top = 743.0
-offset_right = 569.0
-offset_bottom = 777.0
+offset_left = 401.0
+offset_top = 741.0
+offset_right = 614.0
+offset_bottom = 791.0
 text = "Dein Block"
 label_settings = SubResource("LabelSettings_tbgi4")
 uppercase = true
 
 [node name="LabelLastBlock" type="Label" parent="CanvasLayer/Labels"]
-offset_left = 82.0
-offset_top = 743.0
-offset_right = 232.0
-offset_bottom = 777.0
+offset_left = 20.0
+offset_top = 741.0
+offset_right = 291.0
+offset_bottom = 791.0
 text = "Letzter Block"
 label_settings = SubResource("LabelSettings_tbgi4")
 uppercase = true
@@ -156,58 +184,81 @@ offset_bottom = 678.0
 
 [node name="Datacreator" type="Node" parent="CanvasLayer"]
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Datacreator"]
-offset_left = 160.0
-offset_top = 1424.0
-offset_right = 923.0
-offset_bottom = 1581.0
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Datacreator"]
+position = Vector2(403, 1576)
 
-[node name="Data" parent="CanvasLayer/Datacreator" instance=ExtResource("3_jyhfs")]
-offset_left = 194.0
-offset_top = 1451.0
-offset_right = 394.0
-offset_bottom = 1551.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Datacreator/Node2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -50.0
+offset_right = 429.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Data" parent="CanvasLayer/Datacreator/Node2D/HBoxContainer" instance=ExtResource("3_jyhfs")]
+layout_mode = 2
 texture = ExtResource("5_o6xl0")
 
-[node name="DataInput" type="LineEdit" parent="CanvasLayer/Datacreator"]
-offset_left = 508.0
-offset_top = 1451.0
-offset_right = 894.0
-offset_bottom = 1547.0
+[node name="DataInput" type="LineEdit" parent="CanvasLayer/Datacreator/Node2D/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 placeholder_text = "Fülle deinen Block mit Leben.."
 
 [node name="Questcontainer" type="Node" parent="CanvasLayer"]
 script = ExtResource("9_85g3d")
 
-[node name="Background" type="Panel" parent="CanvasLayer/Questcontainer"]
-offset_left = 430.0
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Questcontainer"]
+
+[node name="Background" type="Panel" parent="CanvasLayer/Questcontainer/Node2D"]
+offset_left = 290.0
 offset_top = 105.0
 offset_right = 1101.0
-offset_bottom = 318.0
+offset_bottom = 416.0
 
-[node name="Text" type="Label" parent="CanvasLayer/Questcontainer"]
-offset_left = 455.0
-offset_top = 136.0
-offset_right = 1026.0
-offset_bottom = 297.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Questcontainer/Node2D"]
+offset_left = 305.0
+offset_top = 121.0
+offset_right = 1067.0
+offset_bottom = 300.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Questcontainer/Node2D/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_choun")
+expand_mode = 2
+
+[node name="Text" type="Label" parent="CanvasLayer/Questcontainer/Node2D/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 label_settings = SubResource("LabelSettings_choun")
+text_overrun_behavior = 2
 
-[node name="LowerQuest" type="Button" parent="CanvasLayer/Questcontainer"]
-offset_left = 438.0
-offset_top = 336.0
-offset_right = 538.0
-offset_bottom = 436.0
-text = "<
+[node name="LowerQuest" type="Button" parent="CanvasLayer/Questcontainer/Node2D"]
+offset_left = 397.3049
+offset_top = 397.9234
+offset_right = 921.30493
+offset_bottom = 917.9234
+rotation = -3.1415927
+scale = Vector2(0.15707043, 0.15707043)
+text = "
 "
+icon = ExtResource("10_ya4ey")
+flat = true
 
-[node name="AdvanceQuest" type="Button" parent="CanvasLayer/Questcontainer"]
-offset_left = 569.0
-offset_top = 336.0
-offset_right = 669.0
-offset_bottom = 436.0
-text = ">"
+[node name="AdvanceQuest" type="Button" parent="CanvasLayer/Questcontainer/Node2D"]
+offset_left = 407.04916
+offset_top = 316.0
+offset_right = 927.0492
+offset_bottom = 836.0
+scale = Vector2(0.15707043, 0.15707043)
+icon = ExtResource("10_ya4ey")
+flat = true
 
 [connection signal="pressed" from="CanvasLayer/Hashgenerator/Button" to="CanvasLayer/Hashgenerator" method="generate_hash"]
-[connection signal="text_changed" from="CanvasLayer/Datacreator/DataInput" to="." method="_on_data_input_text_changed"]
-[connection signal="pressed" from="CanvasLayer/Questcontainer/LowerQuest" to="CanvasLayer/Questcontainer" method="lower_quest"]
-[connection signal="pressed" from="CanvasLayer/Questcontainer/AdvanceQuest" to="CanvasLayer/Questcontainer" method="advance_quest"]
+[connection signal="text_changed" from="CanvasLayer/Datacreator/Node2D/HBoxContainer/DataInput" to="." method="_on_data_input_text_changed"]
+[connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/LowerQuest" to="CanvasLayer/Questcontainer" method="lower_quest"]
+[connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/AdvanceQuest" to="CanvasLayer/Questcontainer" method="advance_quest"]
