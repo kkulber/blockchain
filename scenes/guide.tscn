@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://n8uheh88lu7o"]
 
-[ext_resource type="Script" uid="uid://cnbyon7x26nti" path="res://scripts/guide.gd" id="1_rb1b7"]
+[ext_resource type="Script" path="res://scripts/guide.gd" id="1_rb1b7"]
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_fd7ko"]
 [ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="4_law3w"]
-[ext_resource type="PackedScene" uid="uid://dp0miaek6fwkg" path="res://scenes/layer-1.tscn" id="4_wxloj"]
+[ext_resource type="PackedScene" uid="uid://du68my5x1pw7v" path="res://scenes/layer-3.tscn" id="4_wxloj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m10ki"]
 font_size = 75
@@ -120,9 +120,10 @@ offset_bottom = 1200.0
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 disable_3d = true
 transparent_bg = true
+handle_input_locally = false
 size = Vector2i(660, 1080)
+render_target_update_mode = 4
 
-[node name="Main" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_wxloj")]
-position = Vector2(0, 186)
+[node name="Node2D" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_wxloj")]
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
