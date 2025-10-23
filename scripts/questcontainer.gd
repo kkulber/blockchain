@@ -6,35 +6,30 @@ var quests = [
 	"Willkommen, hier wird Dir Schritt für
 	Schritt erklärt wie eine Blockchain funktioniert.",
 	# 1
-	"Fangen wir zunächst mit den Grundlagen einer
-	Blockchain an, einem Block.",
+	"Fangen wir mit den Bausteinen einer Blockchain an – den einzelnen Blöcken.",
 	# 2
-	"Den kannst du dir wie ein Paket vorstellen,
-	wie es hier abgebildet ist.",
+	"Stell dir jeden Block wie ein Paket vor – gefüllt mit Informationen.",
 	# 3
 	"Fülle dein Paket nun mit etwas Leben, indem
 	du in das Feld unten eine beliebige Nachricht einträgst.",
 	# 4
-	"Super, nun ziehe den Datenblock neben dem Feld
+	"Super, nun ziehe den grünen Datenblock neben dem Eingabefeld
 	nach oben in das Paket.",
 	# 5
-	"Damit eine Blockchain funktioniert und die Blöcke
-	tatsächlich aneinanderhängen, muss jeder Block auf den vorherigen
-	Block verweisen.",
+	"Damit die Blöcke zusammenhalten und eine Kette ('Chain') entsteht, 
+	zeigt jeder Block auf den Vorherigen.",
 	# 6
-	"Das machst Du, indem du den sogenannten Hash aus dem
-	vorherigen Block in die Stelle dafür in Deinem Block ziehst.",
+	"Das machst Du, indem du den roten Datenblock, den sogenannten 'Hash' in Deinen
+	Block ziehst. Was genau ein Hash ist erkläre ich Dir gleich.",
 	# 7
-	"Fast fertig! Damit Dein Block gültig wird und auch
-	ein zukünftiger nächster Block auf ihn zeigen kann, braucht er auch
-	einen eigenen Hash.",
+	"Fast geschafft! Nun bekommt auch Dein Block einen eigenen Hash – 
+	der ist praktisch wie sein Fingerabdruck, welcher ihn eindeutig macht.",
 	# 8
-	"Um Deinen eigenen Hash zu erstellen drücke zunächst
-	auf den Button oben rechts und ziehe den Hash in deinen Block.",
+	"Um Deinen eigenen Hash zu erstellen drücke auf den Button 'Hash generieren' - 
+	hier kannst Du erkennen, dass der Hash den Hash des letzten Blocks und deine Daten beinhaltet.",
 	# 9
-	"Fertig! Dein Block ist fertig und das Paket ist
-	sozusagen geschlossen. Schau Dir doch mal die komplette Kette
-	hier an."
+	"Herzlichen Glückwunsch! Du hast jetzt verstanden, 
+	wie Blöcke verbunden werden und eine Blockchain entsteht."
 ]
 var label
 var current_quest = 0
