@@ -37,4 +37,4 @@ func _ready() -> void:
 
 
 func _on_back_pressed() -> void:
-	Globals.load_scene(Globals.menu_scene)
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

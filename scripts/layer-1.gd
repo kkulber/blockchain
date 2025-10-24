@@ -136,8 +136,4 @@ func _on_data_input_text_changed(new_text: String) -> void:
 
 func _on_back_pressed() -> void:
 	#Globals.load_scene(Globals.layer2_scene)
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-
-
-func _on_forward_pressed() -> void:
-	Globals.load_scene(Globals.layer2_scene)
+	get_tree().change_scene_to_file("res://scenes/layer-2.tscn")

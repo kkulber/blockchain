@@ -29,4 +29,4 @@ func _on_right() -> void:
 	$AnimationPlayer.play("right")
 
 func _new_block() -> void:
-	Globals.load_scene(Globals.layer1_scene)
+	get_tree().change_scene_to_file("res://scenes/layer1.tscn")

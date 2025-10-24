@@ -103,4 +103,4 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_bqwdm")
 script = ExtResource("2_6dgsa")
 
-[connection signal="pressed" from="CanvasLayer/ColorRect2/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Back" to="CanvasLayer/Network" method="_on_back_pressed"]
