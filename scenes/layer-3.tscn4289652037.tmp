@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=3 uid="uid://du68my5x1pw7v"]
+
+[ext_resource type="Texture2D" uid="uid://cw1318sn1764e" path="res://images/layer3-network.png" id="1_bqwdm"]
+[ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="1_pkrh1"]
+[ext_resource type="Script" uid="uid://cyr6n0vap4alw" path="res://scripts/layer-3.gd" id="2_6dgsa"]
+[ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="2_j7rus"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_2h877"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_vs326"]
+events = [SubResource("InputEventAction_2h877")]
+
+[sub_resource type="GDScript" id="GDScript_iroxe"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_back_lexikon_pressed() -> void:
+	
+	pass # Replace with function body.
+
+
+func _on_pressed() -> void:
+	Globals.load_scene(Globals.menu)
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_x5rve"]
+font_size = 120
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.8539175, 0.8539175, 0.8539175, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 180)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_vertical = 0
+mouse_filter = 2
+color = Color(0.75686276, 0.047058824, 0.14509805, 1)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="JguLogo" type="Sprite2D" parent="CanvasLayer/ColorRect2/AspectRatioContainer"]
+position = Vector2(-76, -37.999992)
+scale = Vector2(0.852, 0.83)
+texture = ExtResource("1_pkrh1")
+centered = false
+
+[node name="Back" type="Button" parent="CanvasLayer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -76.0
+offset_right = 95.0
+offset_bottom = -1.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_vs326")
+icon = ExtResource("2_j7rus")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = SubResource("GDScript_iroxe")
+
+[node name="GuideHeader" type="Label" parent="CanvasLayer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -82.5
+offset_right = 256.0
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 72
+text = "Ebene 3"
+label_settings = SubResource("LabelSettings_x5rve")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Network" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(540, 960)
+rotation = 1.5707964
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_bqwdm")
+script = ExtResource("2_6dgsa")
+
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Back" to="CanvasLayer/ColorRect2/Back" method="_on_pressed"]

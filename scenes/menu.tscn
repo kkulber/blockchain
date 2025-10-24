@@ -1,18 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4wi4upsghidd"]
+[gd_scene load_steps=14 format=3 uid="uid://c4wi4upsghidd"]
 
 [ext_resource type="Script" uid="uid://msx8aw72um6d" path="res://scripts/menu.gd" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="1_yqeox"]
+[ext_resource type="StyleBox" uid="uid://cka4ea8o0xe63" path="res://art/menu_button_style.tres" id="3_con2f"]
+[ext_resource type="StyleBox" uid="uid://du5vlt5cjusor" path="res://art/menu_button_style_pressed.tres" id="4_4ytvr"]
+[ext_resource type="StyleBox" uid="uid://c0v4houy0gqrt" path="res://art/menu_button_style_hover.tres" id="5_g3eks"]
 
 [sub_resource type="SystemFont" id="SystemFont_vjb58"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_vjb58"]
 font = SubResource("SystemFont_vjb58")
-font_size = 75
+font_size = 120
 font_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yqeox"]
 font_size = 20
 font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+bg_color = Color(0.2249048, 0.22490487, 0.22490472, 0.47058824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eks"]
+bg_color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_v86rl"]
+font_size = 40
+font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v86rl"]
+bg_color = Color(0.7645111, 0.76451117, 0.7645109, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13sgg"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -42,7 +70,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 size_flags_vertical = 0
 color = Color(0.75686276, 0.047058824, 0.14509805, 1)
@@ -61,8 +89,8 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="JguLogo" type="Sprite2D" parent="VBoxContainer/ColorRect/AspectRatioContainer"]
-position = Vector2(-5, -1)
-scale = Vector2(0.53139013, 0.53539824)
+position = Vector2(-76, -37.999992)
+scale = Vector2(0.852, 0.83)
 texture = ExtResource("1_yqeox")
 centered = false
 
@@ -101,26 +129,51 @@ layout_mode = 2
 
 [node name="Button_Start" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = ExtResource("3_con2f")
+theme_override_styles/pressed = ExtResource("4_4ytvr")
+theme_override_styles/pressed_mirrored = ExtResource("4_4ytvr")
+theme_override_styles/hover = ExtResource("5_g3eks")
+theme_override_styles/hover_pressed = ExtResource("4_4ytvr")
 text = "Guide"
 
 [node name="Container3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="Button_Lexikon" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = ExtResource("3_con2f")
+theme_override_styles/pressed = ExtResource("4_4ytvr")
+theme_override_styles/pressed_mirrored = ExtResource("4_4ytvr")
+theme_override_styles/hover = ExtResource("5_g3eks")
+theme_override_styles/hover_mirrored = ExtResource("5_g3eks")
+theme_override_styles/hover_pressed = ExtResource("4_4ytvr")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_4ytvr")
 text = "Lexikon"
 
 [node name="Container4" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="Button_Settings" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = ExtResource("3_con2f")
+theme_override_styles/pressed = ExtResource("4_4ytvr")
+theme_override_styles/pressed_mirrored = ExtResource("4_4ytvr")
+theme_override_styles/hover = ExtResource("5_g3eks")
+theme_override_styles/hover_mirrored = ExtResource("5_g3eks")
+theme_override_styles/hover_pressed = ExtResource("4_4ytvr")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_4ytvr")
 text = "Einstellungen"
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
@@ -129,6 +182,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="."]
+visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 1
 anchors_preset = 12
@@ -143,6 +197,210 @@ text = "Copyright & Lizenz	"
 label_settings = SubResource("LabelSettings_yqeox")
 horizontal_alignment = 1
 
+[node name="Button_Licensing" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/font_size = 48
+text = "Copyright & Lizenz	"
+flat = true
+
+[node name="Panel_Licensing" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ytvr")
+
+[node name="Button_Licensing_Close" type="Button" parent="Panel_Licensing"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Panel" type="Panel" parent="Panel_Licensing"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -417.0
+offset_top = -742.0
+offset_right = 417.0
+offset_bottom = 742.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g3eks")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel_Licensing/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Licensing/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Lizenz	"
+label_settings = SubResource("LabelSettings_v86rl")
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_v86rl")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer/Panel2"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer/Panel2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer/Panel2/ScrollContainer/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_behavior_recursive = 1
+theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+text = "This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <https://unlicense.org/>"
+fit_content = true
+scroll_active = false
+
+[node name="Control" type="Control" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_13sgg")
+
+[node name="Label2" type="Label" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Externe Quellen"
+label_settings = SubResource("LabelSettings_v86rl")
+horizontal_alignment = 1
+
+[node name="Panel3" type="Panel" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_v86rl")
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer/Panel3"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer/Panel3/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel_Licensing/Panel/MarginContainer/VBoxContainer/Panel3/ScrollContainer2/MarginContainer2"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_behavior_recursive = 1
+theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+bbcode_enabled = true
+text = "JGU-Logo © Johannes Gutenberg Universität  
+  
+arrow-left-circle-Icon © Colebemis – MIT License  
+  
+sliders-Icon © Colebemis – MIT License   
+  
+[url=\"https://www.flaticon.com/free-icons/architecture\"]Architecture icons created by Freepik - Flaticon[/url]  
+  
+[url=\"https://www.flaticon.com/free-icons/pending\"]Pending icons created by Freepik - Flaticon[/url]  "
+fit_content = true
+scroll_active = false
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button_Lexikon" to="." method="_on_button_lexikon_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="Button_Licensing" to="." method="_on_button_licensing_pressed"]
+[connection signal="pressed" from="Panel_Licensing/Button_Licensing_Close" to="." method="_on_button_licensing_close_pressed"]

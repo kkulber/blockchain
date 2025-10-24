@@ -1,33 +1,94 @@
 extends Node2D
+
+# Keep track of your generated block
+var block_data = ""
+var block_previous_hash = "0000"
+var block_hash = "0000"
+
+# Declare all nodes used later
+var data_dad
+var previous_pointer_dad
+var hashgenerator_shown = false
+
+var hash_dad
+var block_is_complete = false
+
+var questcontainer
+
+# Smaller labels under the description labels to display contained data
+var previous_hash_visualizer_label
+var hash_visualizer_label
+var data_visualizer_label
+var input_field_text = ""
+
+var hashgenerator
+
+var animation_player
+
+# Communication functions (gets and sets) for the values of the block
+# 	- data a block holds (block_data)
+# 	- the hash of the previous block (block_previous_hash)
+# 	- own hash of the block (block_hash)
+func get_block_data() -> String:
+	return block_data
 	
-var counter = 0	
-var source_image = load("res://icon.svg")
+func set_block_data(new_data: String) -> void:
+	block_data = new_data
 	
-func _ready():
-	# Prepare signals
-	$CanvasLayer/Block/Add.pressed.connect(add_block)
+func get_block_previous_hash() -> String:
+	return block_previous_hash
 	
-	# Reset counter label
-	$CanvasLayer/Counter/Label.text = str(counter)
+func set_block_previous_hash(new_previous_hash: String) -> void:
+	block_previous_hash = new_previous_hash
 	
-# Function called when a block gets added
-func add_block():
-	# Increase counter
-	counter += 1
-	$CanvasLayer/Counter/Label.text = str(counter)
+func get_block_hash() -> String:
+	return block_hash
+
+func set_block_hash(new_hash: String) -> void:
+	block_hash = new_hash
+
+
+# -- Regular main script functions --
+
+# Show the hashgenerator 
+func show_hashgenerator() -> void:
+	$CanvasLayer/Hashgenerator.visible = true 
+	hashgenerator_shown = true
 	
-	# Reset block
-	$CanvasLayer/Block/Data_DaD_Block.texture = null
-	$CanvasLayer/Block/Pointer_DaD_Block.texture = null
-	$CanvasLayer/Block/Hash_DaD_Block.texture = null
+# Hide the hashgenerator 
+func hide_hashgenerator() -> void:
+	$CanvasLayer/Hashgenerator.visible = false	
+	hashgenerator_shown = false
+
+# Just clears the text of an label
+func clear_label_text(label):
+	label.text = ""
+
+
+# -- Godot's built in functions --
+
+func _ready() -> void:
+	data_dad = $CanvasLayer/YourBlock/VBoxContainer/data_rect
+	previous_pointer_dad = $CanvasLayer/YourBlock/VBoxContainer/HBoxContainer/pointer_square
+	hash_dad = $CanvasLayer/YourBlock/VBoxContainer/HBoxContainer/hash_square
 	
-	# Add new blocks
-	$CanvasLayer/TextureRect.texture = source_image
-	$CanvasLayer/TextureRect2.texture = source_image
-	$CanvasLayer/TextureRect3.texture = source_image
+	questcontainer = $CanvasLayer/Questcontainer
 	
+	previous_hash_visualizer_label = $CanvasLayer/Labels/PreviousHashVisualizerLabel
+	hash_visualizer_label = $CanvasLayer/Labels/HashVisualizerLabel
+	data_visualizer_label = $CanvasLayer/Labels/DataVisualizerLabel
+	
+	hashgenerator = $CanvasLayer/Hashgenerator
+	
+	animation_player = $AnimationPlayer
+	
+	block_previous_hash = BlockchainNetwork.blockchain_machines \
+	 	[BlockchainNetwork.current_id]["blockchain"][-1]["hash"]
+
+	# Turns off the hashgenerator
+	hide_hashgenerator()
+
 func _process(delta: float) -> void:
-<<<<<<< Updated upstream
 	if $CanvasLayer/Block/Data_DaD_Block.texture and $CanvasLayer/Block/Pointer_DaD_Block.texture and $CanvasLayer/Block/Hash_DaD_Block.texture:
 		$CanvasLayer/Block/Panel.modulate = Color.GREEN
 		$CanvasLayer/Block/Deckel.visible = true
@@ -36,7 +97,6 @@ func _process(delta: float) -> void:
 		$CanvasLayer/Block/Panel.modulate = Color.RED
 		$CanvasLayer/Block/Deckel.visible = false
 		$CanvasLayer/Block/Add.visible = false
-=======
 	
 	# Player places data in the package
 	if data_dad.texture:
@@ -90,4 +150,4 @@ func _on_back_pressed() -> void:
 
 func _on_forward_pressed() -> void:
 	Globals.load_scene(Globals.layer2_scene)
->>>>>>> Stashed changes
+

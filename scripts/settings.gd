@@ -26,3 +26,14 @@ func _on_back_pressed() -> void:
 
 func _on_save_pressed() -> void:
 	GlobalSettings.save_settings()
+
+
+func _on_button_dark_mode_pressed() -> void:
+	if %Button_DarkMode.text == "Deaktiviert":
+		%Button_DarkMode.text = "Aktiviert"
+		%Button_DarkMode.modulate = Color(0.133, 0.133, 0.133, 1.0)
+		self.modulate = Color(0.679, 0.679, 0.679, 1.0)
+	else:
+		%Button_DarkMode.text = "Deaktiviert"
+		%Button_DarkMode.modulate = Color(0.91, 0.91, 0.91, 1.0)
+		self.modulate = Color(1.0, 1.0, 1.0, 1.0)

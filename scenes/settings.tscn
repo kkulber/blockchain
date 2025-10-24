@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://davpcfmndjtos"]
+[gd_scene load_steps=12 format=3 uid="uid://davpcfmndjtos"]
 
 [ext_resource type="Script" uid="uid://b8p2dijf3gad" path="res://scripts/settings.gd" id="1_mvpff"]
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_6wm04"]
 [ext_resource type="LabelSettings" uid="uid://c2qk7n04an7nk" path="res://art/default_font.tres" id="2_r6d6q"]
 [ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="3_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://cg342d62xwxfu" path="res://art/sliders.svg" id="4_es4n0"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_2h877"]
 action = &"start_game"
@@ -31,8 +32,7 @@ func _on_back_lexikon_pressed() -> void:
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_r6d6q"]
-font_size = 75
-font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+font_size = 100
 
 [sub_resource type="InputEventAction" id="InputEventAction_83j8s"]
 action = &"start_game"
@@ -59,10 +59,11 @@ grow_vertical = 2
 color = Color(0.85490197, 0.85490197, 0.85490197, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 0
-offset_right = 660.0
-offset_bottom = 120.0
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 size_flags_vertical = 0
 color = Color(0.75686276, 0.047058824, 0.14509805, 1)
 
@@ -80,17 +81,18 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="JguLogo" type="Sprite2D" parent="ColorRect2/AspectRatioContainer"]
-position = Vector2(-5, -1)
-scale = Vector2(0.53139013, 0.53539824)
+position = Vector2(-76, -37.999992)
+scale = Vector2(0.852, 0.83)
 texture = ExtResource("2_6wm04")
 centered = false
 
 [node name="Back" type="Button" parent="ColorRect2"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 24.0
-offset_right = 111.0
-offset_bottom = 99.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 95.0
+offset_bottom = 89.0
+scale = Vector2(2, 2)
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 48
@@ -101,16 +103,24 @@ icon_alignment = 1
 expand_icon = true
 script = SubResource("GDScript_gis3k")
 
-[node name="SettingsHeader" type="Label" parent="."]
+[node name="Sliders" type="Sprite2D" parent="ColorRect2"]
+visible = false
+position = Vector2(330, 60)
+texture = ExtResource("4_es4n0")
+
+[node name="SettingsHeader" type="Label" parent="ColorRect2"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -240.0
-offset_top = 120.0
+offset_top = -68.5
 offset_right = 240.0
-offset_bottom = 247.99986
+offset_bottom = 68.5
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "Einstellungen"
@@ -126,12 +136,48 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -272.5
-offset_top = -225.5
-offset_right = 272.5
-offset_bottom = 225.5
+offset_left = -474.0
+offset_top = -760.0
+offset_right = 474.0
+offset_bottom = 809.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="LanguageContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/LanguageContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DifficultyText" type="Label" parent="VBoxContainer2/LanguageContainer/MarginContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Sprache "
+label_settings = ExtResource("2_r6d6q")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/LanguageContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer2/LanguageContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "Deutsch"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
@@ -147,9 +193,9 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 1, 0.454902)
 theme_override_font_sizes/font_size = 40
-text = "Dark Mode"
+text = "Dark Mode "
 label_settings = ExtResource("2_r6d6q")
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -157,12 +203,12 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer2/HBoxContainer2/MarginContainer"]
+[node name="Button_DarkMode" type="Button" parent="VBoxContainer2/HBoxContainer2/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-theme_override_font_sizes/font_size = 24
-text = "
-"
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Deaktiviert"
 
 [node name="DifficultyContainer" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
@@ -201,48 +247,56 @@ max_value = 3.0
 value = 2.0
 rounded = true
 
-[node name="LanguageContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="LanguageContainer2" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/LanguageContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/LanguageContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DifficultyText" type="Label" parent="VBoxContainer2/LanguageContainer/MarginContainer2"]
+[node name="DifficultyText" type="Label" parent="VBoxContainer2/LanguageContainer2/MarginContainer2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 40
-text = "Sprache "
+text = "Farbblindheit "
 label_settings = ExtResource("2_r6d6q")
 horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/LanguageContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/LanguageContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer2/LanguageContainer/MarginContainer"]
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer2/LanguageContainer2/MarginContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 50
 alignment = 1
 selected = 0
-item_count = 2
-popup/item_0/text = "Deutsch"
-popup/item_0/id = 0
-popup/item_1/text = "English"
-popup/item_1/id = 1
+item_count = 6
+popup/item_0/text = "Keine"
+popup/item_0/id = 1
+popup/item_1/text = "Achromasie"
+popup/item_1/id = 0
+popup/item_2/text = "Monochromasie"
+popup/item_2/id = 2
+popup/item_3/text = "Protanopie"
+popup/item_3/id = 3
+popup/item_4/text = "Deuteranopie"
+popup/item_4/id = 4
+popup/item_5/text = "Tritanopie"
+popup/item_5/id = 5
 
 [node name="Control" type="Control" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer2/Control"]
-custom_minimum_size = Vector2(0, 2)
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -291,7 +345,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 1
-tooltip_text = "Set volume from 0-100%"
+tooltip_text = "0 - 100%"
 min_value = -80.0
 max_value = 24.0
 rounded = true
@@ -323,7 +377,7 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 1
-tooltip_text = "Set volume from 0-100%"
+tooltip_text = "0 - 100%"
 min_value = -80.0
 max_value = 24.0
 rounded = true
@@ -358,6 +412,7 @@ text = " Speichern
 "
 
 [connection signal="pressed" from="ColorRect2/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer2/MarginContainer/Button_DarkMode" to="." method="_on_button_dark_mode_pressed"]
 [connection signal="value_changed" from="VBoxContainer2/DifficultyContainer/MarginContainer/DifficultySlider" to="." method="_on_difficulty_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/VolumeContainer/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/SoundeffectContainer/MarginContainer/EffectSlider" to="." method="_on_volume_slider_value_changed"]

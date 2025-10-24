@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_paukg"]
 [ext_resource type="LabelSettings" uid="uid://c2qk7n04an7nk" path="res://art/default_font.tres" id="3_k8g70"]
 [ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="4_k8g70"]
-[ext_resource type="Script" uid="uid://b0w3qxrcohdy" path="res://scripts/lexikon.gd" id="4_paukg"]
+[ext_resource type="Script" path="res://scripts/lexikon.gd" id="4_paukg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m10ki"]
-font_size = 75
+font_size = 100
 
 [sub_resource type="InputEventAction" id="InputEventAction_2h877"]
 action = &"start_game"
@@ -53,9 +53,11 @@ color = Color(0.8539175, 0.8539175, 0.8539175, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(0, 120)
-layout_mode = 0
-offset_right = 660.0
-offset_bottom = 120.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 180.0
+grow_horizontal = 2
 size_flags_vertical = 0
 color = Color(0.75686276, 0.047058824, 0.14509805, 1)
 
@@ -73,20 +75,24 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="JguLogo" type="Sprite2D" parent="ColorRect2/AspectRatioContainer"]
-position = Vector2(-5, -1)
-scale = Vector2(0.53139013, 0.53539824)
+position = Vector2(-71, -37.999996)
+scale = Vector2(0.824, 0.83)
 texture = ExtResource("2_paukg")
 centered = false
 
-[node name="SettingsHeader" type="Label" parent="."]
+[node name="LexikonHeader" type="Label" parent="ColorRect2"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -179.0
+offset_top = -68.5
 offset_right = 179.0
-offset_bottom = 119.0
+offset_bottom = 68.5
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "Lexikon	"
@@ -101,8 +107,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 20.0
-offset_top = 121.0
+offset_top = 182.0
 offset_right = -20.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
@@ -136,7 +143,7 @@ light_mask = 0
 layout_mode = 2
 mouse_behavior_recursive = 1
 theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 25
 theme_override_font_sizes/bold_italics_font_size = 25
 theme_override_font_sizes/italics_font_size = 25
@@ -168,7 +175,7 @@ light_mask = 0
 layout_mode = 2
 mouse_behavior_recursive = 1
 theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 25
 theme_override_font_sizes/bold_italics_font_size = 25
 theme_override_font_sizes/italics_font_size = 25
@@ -200,7 +207,7 @@ light_mask = 0
 layout_mode = 2
 mouse_behavior_recursive = 1
 theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 25
 theme_override_font_sizes/bold_italics_font_size = 25
 theme_override_font_sizes/italics_font_size = 25
@@ -232,7 +239,7 @@ light_mask = 0
 layout_mode = 2
 mouse_behavior_recursive = 1
 theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 25
 theme_override_font_sizes/bold_italics_font_size = 25
 theme_override_font_sizes/italics_font_size = 25
@@ -265,7 +272,7 @@ light_mask = 0
 layout_mode = 2
 mouse_behavior_recursive = 1
 theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 25
 theme_override_font_sizes/bold_italics_font_size = 25
 theme_override_font_sizes/italics_font_size = 25
@@ -298,7 +305,7 @@ light_mask = 0
 layout_mode = 2
 mouse_behavior_recursive = 1
 theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 25
 theme_override_font_sizes/bold_italics_font_size = 25
 theme_override_font_sizes/italics_font_size = 25
@@ -314,12 +321,48 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 mouse_behavior_recursive = 1
 
+[node name="VBoxContainer7" type="VBoxContainer" parent="ScrollContainer/VBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer2/VBoxContainer7"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+text = "Smart Contracts"
+label_settings = ExtResource("3_k8g70")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer2/VBoxContainer7"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+text = "Smart Contracts sind digitale Verträge, die automatisch ausgeführt werden, sobald festgelegte Bedingungen erfüllt sind.  
+Beispielsweise kann bei einem Zahlungseingang automatisch der Versand der bestellten Ware ausgelöst werden.  
+Da der Vertrag fälschungssicher abläuft, ist keine dritte Partei nötig, die den Vertragsprozess überwacht.
+"
+fit_content = true
+scroll_active = false
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer2/VBoxContainer7"]
+light_mask = 0
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_behavior_recursive = 1
+
 [node name="Back" type="Button" parent="."]
 layout_mode = 1
-offset_left = 30.0
-offset_top = 24.0
-offset_right = 111.0
-offset_bottom = 99.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 95.0
+offset_bottom = 89.0
+scale = Vector2(2, 2)
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 48

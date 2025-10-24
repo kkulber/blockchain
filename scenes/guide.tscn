@@ -1,0 +1,197 @@
+[gd_scene load_steps=11 format=3 uid="uid://n8uheh88lu7o"]
+
+[ext_resource type="Script" uid="uid://cnbyon7x26nti" path="res://scripts/guide.gd" id="1_rb1b7"]
+[ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_fd7ko"]
+[ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="4_law3w"]
+[ext_resource type="PackedScene" uid="uid://dp0miaek6fwkg" path="res://scenes/layer-1.tscn" id="4_nhlb8"]
+[ext_resource type="PackedScene" uid="uid://du68my5x1pw7v" path="res://scenes/layer-3.tscn" id="4_wxloj"]
+[ext_resource type="PackedScene" uid="uid://dwdtjoyxi8shh" path="res://scenes/layer-2.tscn" id="5_law3w"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_2h877"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_h68ux"]
+events = [SubResource("InputEventAction_2h877")]
+
+[sub_resource type="GDScript" id="GDScript_m10ki"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_back_lexikon_pressed() -> void:
+	
+	pass # Replace with function body.
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_m10ki"]
+font_size = 120
+
+[node name="Guide" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_rb1b7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.8539175, 0.8539175, 0.8539175, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_vertical = 0
+mouse_filter = 2
+color = Color(0.75686276, 0.047058824, 0.14509805, 1)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="JguLogo" type="Sprite2D" parent="ColorRect2/AspectRatioContainer"]
+position = Vector2(-76, -37.999992)
+scale = Vector2(0.852, 0.83)
+texture = ExtResource("2_fd7ko")
+centered = false
+
+[node name="Back" type="Button" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -76.0
+offset_right = 95.0
+offset_bottom = -1.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_h68ux")
+icon = ExtResource("4_law3w")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = SubResource("GDScript_m10ki")
+
+[node name="GuideHeader" type="Label" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -82.5
+offset_right = 179.0
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 72
+text = "Guide"
+label_settings = SubResource("LabelSettings_m10ki")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SubViewportContainer1" type="SubViewportContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1737.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="SubViewport1" type="SubViewport" parent="SubViewportContainer1"]
+unique_name_in_owner = true
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1080, 1620)
+render_target_update_mode = 0
+
+[node name="Layer1" parent="SubViewportContainer1/SubViewport1" instance=ExtResource("4_nhlb8")]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1740.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="SubViewport2" type="SubViewport" parent="SubViewportContainer2"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1080, 1740)
+render_target_update_mode = 0
+
+[node name="Layer2" parent="SubViewportContainer2/SubViewport2" instance=ExtResource("5_law3w")]
+
+[node name="SubViewportContainer3" type="SubViewportContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1740.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="SubViewport3" type="SubViewport" parent="SubViewportContainer3"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(1080, 1740)
+render_target_update_mode = 4
+
+[node name="Layer3" parent="SubViewportContainer3/SubViewport3" instance=ExtResource("4_wxloj")]
+
+[connection signal="pressed" from="ColorRect2/Back" to="." method="_on_back_pressed"]
