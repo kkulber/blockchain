@@ -10,9 +10,14 @@ var previous_hash_label
 var my_texture = load("res://images/square_blue.svg")
 
 func generate_hash():
-	if not has_generated_hash:
-		hash_dad.texture = my_texture
-		has_generated_hash = true
+	if has_generated_hash: return
+	
+	hash_dad.texture = my_texture
+	has_generated_hash = true
+	
+	var main = $"../.."
+	var new_hash = BlockchainNetwork.hash_block(main.block_data, main.block_previous_hash)
+	main.block_hash = new_hash
 
 func _ready() -> void:
 	# Initialize references

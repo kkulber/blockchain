@@ -2,8 +2,8 @@ extends Node2D
 
 # Keep track of your generated block
 var block_data = ""
-var block_previous_hash = "12345567890"
-var block_hash = "8u7qcn87b1ct8c17tc3r18tr187trc8bt1c8c1128bh78ct1z"
+var block_previous_hash = "0000"
+var block_hash = "0000"
 
 # Declare all nodes used later
 var data_dad
@@ -82,6 +82,9 @@ func _ready() -> void:
 	
 	animation_player = $AnimationPlayer
 	
+	block_previous_hash = BlockchainNetwork.blockchain_machines \
+	 	[BlockchainNetwork.current_id]["blockchain"][-1]["hash"]
+
 	# Turns off the hashgenerator
 	hide_hashgenerator()
 

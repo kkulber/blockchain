@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://jey0vma2ul1s"]
 
-[ext_resource type="Script" uid="uid://ck2oqndpp715y" path="res://scripts/main.gd" id="1_x2k1u"]
+[ext_resource type="Script" uid="uid://ck2oqndpp715y" path="res://scripts/layer-1.gd" id="1_x2k1u"]
 [ext_resource type="Script" uid="uid://u7p0tjyot018" path="res://scripts/animation_player.gd" id="2_g43gi"]
 [ext_resource type="Texture2D" uid="uid://bkqbr6erkgyeg" path="res://images/ellipse.png" id="2_y7lky"]
 [ext_resource type="Texture2D" uid="uid://chku1xcq2qd8k" path="res://images/package.png" id="3_ofi4m"]
@@ -16,22 +16,6 @@
 [ext_resource type="Script" uid="uid://sxao0ue5uobb" path="res://scripts/questcontainer.gd" id="9_dmiet"]
 [ext_resource type="Texture2D" uid="uid://cwx1als7pvpjg" path="res://images/quest.png" id="10_7207q"]
 [ext_resource type="Texture2D" uid="uid://briaqfeif6avu" path="res://images/play-button.png" id="11_brctg"]
-
-[sub_resource type="Animation" id="Animation_r0vgs"]
-resource_name = "package_plop"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/YourBlock/Package:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.23333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.6035156, 0.6035156), Vector2(0.7, 0.7), Vector2(0.6035156, 0.6035156)]
-}
 
 [sub_resource type="Animation" id="Animation_dmiet"]
 length = 0.001
@@ -138,6 +122,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0.15707043, 0.15707043), Vector2(0.17, 0.17), Vector2(0.15707043, 0.15707043)]
+}
+
+[sub_resource type="Animation" id="Animation_r0vgs"]
+resource_name = "package_plop"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/YourBlock/Package:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6035156, 0.6035156), Vector2(0.7, 0.7), Vector2(0.6035156, 0.6035156)]
 }
 
 [sub_resource type="Animation" id="Animation_w86gj"]
@@ -342,8 +342,8 @@ script = ExtResource("2_g43gi")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.85490197, 0.85490197, 0.85490197, 1)
@@ -706,10 +706,10 @@ offset_bottom = 398.0
 label_settings = SubResource("LabelSettings_g43gi")
 vertical_alignment = 1
 
-[connection signal="pressed" from="CanvasLayer/Hashgenerator/Button" to="CanvasLayer/Hashgenerator" method="generate_hash"]
 [connection signal="pressed" from="CanvasLayer/Hashgenerator/Button" to="AnimationPlayer" method="play_hash_progess"]
+[connection signal="pressed" from="CanvasLayer/Hashgenerator/Button" to="CanvasLayer/Hashgenerator" method="generate_hash"]
 [connection signal="text_changed" from="CanvasLayer/Editor/Node2D/HBoxContainer/DataInput" to="." method="_on_data_input_text_changed"]
-[connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/LowerQuest" to="CanvasLayer/Questcontainer" method="lower_quest"]
 [connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/LowerQuest" to="AnimationPlayer" method="play_lower_quest_bounce"]
-[connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/AdvanceQuest" to="CanvasLayer/Questcontainer" method="advance_quest"]
+[connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/LowerQuest" to="CanvasLayer/Questcontainer" method="lower_quest"]
 [connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/AdvanceQuest" to="AnimationPlayer" method="play_advance_quest_bounce"]
+[connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/AdvanceQuest" to="CanvasLayer/Questcontainer" method="advance_quest"]
