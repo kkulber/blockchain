@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://delhpy0pbys1y"]
+[gd_scene load_steps=5 format=3 uid="uid://delhpy0pbys1y"]
 
+[ext_resource type="Shader" uid="uid://c5pcq14712pkh" path="res://shaders/dad_rect.gdshader" id="1_7jef0"]
 [ext_resource type="Script" uid="uid://bauv76m8qya0s" path="res://scripts/texture_rect.gd" id="1_ohhw7"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txumv"]
+shader = ExtResource("1_7jef0")
+shader_parameter/radius = 0.10000000475
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nst81"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
 [node name="TextureRect" type="TextureRect"]
+material = SubResource("ShaderMaterial_txumv")
 custom_minimum_size = Vector2(200, 100)
 offset_right = 200.0
 offset_bottom = 100.0
@@ -16,3 +34,4 @@ layout_mode = 0
 offset_right = 200.0
 offset_bottom = 100.0
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nst81")

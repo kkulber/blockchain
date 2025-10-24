@@ -1,45 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://xvts10fh1qyk"]
+[gd_scene load_steps=4 format=3 uid="uid://xvts10fh1qyk"]
 
 [ext_resource type="PackedScene" uid="uid://delhpy0pbys1y" path="res://scenes/dad_rect.tscn" id="1_2wby2"]
+[ext_resource type="Texture2D" uid="uid://bg8ehqpa8upe6" path="res://images/Paket.svg" id="1_4kun4"]
 [ext_resource type="PackedScene" uid="uid://dfgts0ldpgl01" path="res://scenes/dad_square.tscn" id="3_i42b4"]
 
 [node name="Block" type="Node2D"]
 
-[node name="Panel" type="Panel" parent="."]
-modulate = Color(18.892157, 18.892157, 18.892157, 1)
-offset_left = 410.0
-offset_top = 187.0
-offset_right = 637.0
-offset_bottom = 414.0
+[node name="Paket" type="Sprite2D" parent="."]
+position = Vector2(127.99999, 159)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("1_4kun4")
 
-[node name="Data_DaD_Block" parent="." instance=ExtResource("1_2wby2")]
-offset_left = 424.0
-offset_top = 300.0
-offset_right = 624.0
-offset_bottom = 400.0
+[node name="data_rect" parent="." instance=ExtResource("1_2wby2")]
+offset_left = 26.0
+offset_top = 163.0
+offset_right = 226.0
+offset_bottom = 263.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Pointer_DaD_Block" parent="." instance=ExtResource("3_i42b4")]
-offset_left = 424.0
-offset_top = 196.0
-offset_right = 524.0
-offset_bottom = 296.0
+[node name="pointer_square" parent="." instance=ExtResource("3_i42b4")]
+offset_left = 26.0
+offset_top = 59.0
+offset_right = 126.0
+offset_bottom = 159.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Hash_DaD_Block" parent="." instance=ExtResource("3_i42b4")]
-offset_left = 526.0
-offset_top = 196.0
-offset_right = 626.0
-offset_bottom = 296.0
+[node name="hash_square" parent="." instance=ExtResource("3_i42b4")]
+offset_left = 128.0
+offset_top = 59.0
+offset_right = 228.0
+offset_bottom = 159.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Deckel" type="Panel" parent="."]
+[node name="top" type="Panel" parent="."]
 modulate = Color(0, 18.892157, 0, 1)
-offset_left = 400.0
-offset_top = 140.0
-offset_right = 649.0
-offset_bottom = 190.0
-
-[node name="Add" type="Button" parent="."]
-offset_left = 424.0
-offset_top = 447.0
-offset_right = 624.25806
-offset_bottom = 511.0
-text = "Hinzufügen"
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 251.0
+offset_bottom = 53.0
+metadata/_edit_use_anchors_ = true

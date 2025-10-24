@@ -1,0 +1,14 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" width="1400" height="1400">
+	<defs>
+		<image  width="1400" height="385" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABXgAAAGBAQMAAADmF0u2AAAAAXNSR0IB2cksfwAAAANQTFRFqXg1wIZs6AAAAYhJREFUeJztzsEJACAMADG7/9LO4CNI4TJB5uwyvwOP+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa/W1+lp9rb5WX6uv1dfqa237XqEYAYK6FkVbAAAAAElFTkSuQmCC"/>
+		<image  width="1320" height="346" id="img2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABSgAAAFaAQMAAAAn+iESAAAAAXNSR0IB2cksfwAAAANQTFRFwI9PbK1zHwAAAWNJREFUeJztzsEJACAMADG7/9Ku0EdAhMsEmfODeR1Yaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ2WTkunpdPSaem0dFo6LZ0L954BW+UcOIIAAAAASUVORK5CYII="/>
+		<image  width="402" height="56" id="img3" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZIAAAA4AQMAAADtvOyFAAAAAXNSR0IB2cksfwAAAANQTFRFUcTaA5RQ3QAAACNJREFUeJzty6EBAAAMAqD5/9N7wGKHTm4Xx3Ecx3Ecx3GqB0+fADnILnd+AAAAAElFTkSuQmCC"/>
+		<image  width="402" height="1224" id="img4" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZIAAATIAQMAAAAMYdGPAAAAAXNSR0IB2cksfwAAAANQTFRFWuT/0UFP2QAAANRJREFUeJzty6EBAAAMAqD5/9O7wWSBTq4Xx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3EcxxmfB/ZNBMkyrMQsAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+	</style>
+	<use id="TopOut" href="#img1" x="0" y="1015"/>
+	<use id="TopIn" href="#img2" x="40" y="1054"/>
+	<use id="Ebene 1" href="#img3" x="499" y="1015"/>
+	<use id="StripeIN" href="#img4" x="499" y="1054"/>
+</svg>

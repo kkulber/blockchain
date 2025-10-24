@@ -1,0 +1,715 @@
+[gd_scene load_steps=38 format=3 uid="uid://dp0miaek6fwkg"]
+
+[ext_resource type="Script" uid="uid://ck2oqndpp715y" path="res://scripts/main.gd" id="1_x2k1u"]
+[ext_resource type="Script" uid="uid://u7p0tjyot018" path="res://scripts/animation_player.gd" id="2_g43gi"]
+[ext_resource type="Texture2D" uid="uid://bkqbr6erkgyeg" path="res://images/ellipse.png" id="2_y7lky"]
+[ext_resource type="Texture2D" uid="uid://chku1xcq2qd8k" path="res://images/package.png" id="3_ofi4m"]
+[ext_resource type="PackedScene" uid="uid://dfgts0ldpgl01" path="res://scenes/dad_square.tscn" id="4_glvh6"]
+[ext_resource type="PackedScene" uid="uid://delhpy0pbys1y" path="res://scenes/dad_rect.tscn" id="5_hr7qw"]
+[ext_resource type="Shader" uid="uid://c5pcq14712pkh" path="res://shaders/dad_rect.gdshader" id="6_hr7qw"]
+[ext_resource type="Texture2D" uid="uid://vcm8e5yfxkdg" path="res://images/square_red.svg" id="6_y7lky"]
+[ext_resource type="Script" uid="uid://cly6rpvjpmjry" path="res://scripts/hashgenerator.gd" id="7_g43gi"]
+[ext_resource type="Texture2D" uid="uid://boigv405skmno" path="res://images/arrow.png" id="7_glvh6"]
+[ext_resource type="Texture2D" uid="uid://bi7022w1qsnoc" path="res://images/curved-arrow.png" id="8_hr7qw"]
+[ext_resource type="Texture2D" uid="uid://eqpqpk0qour2" path="res://images/square_green.svg" id="8_ofi4m"]
+[ext_resource type="Script" uid="uid://bauv76m8qya0s" path="res://scripts/texture_rect.gd" id="8_w86gj"]
+[ext_resource type="Script" uid="uid://sxao0ue5uobb" path="res://scripts/questcontainer.gd" id="9_dmiet"]
+[ext_resource type="Texture2D" uid="uid://cwx1als7pvpjg" path="res://images/quest.png" id="10_7207q"]
+[ext_resource type="Texture2D" uid="uid://briaqfeif6avu" path="res://images/play-button.png" id="11_brctg"]
+
+[sub_resource type="Animation" id="Animation_r0vgs"]
+resource_name = "package_plop"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/YourBlock/Package:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6035156, 0.6035156), Vector2(0.7, 0.7), Vector2(0.6035156, 0.6035156)]
+}
+
+[sub_resource type="Animation" id="Animation_dmiet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/YourBlock/Package:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6035156, 0.6035156)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Questcontainer/Node2D/AdvanceQuest:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.15707043, 0.15707043)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Questcontainer/Node2D/LowerQuest:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.15707043, 0.15707043)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Hashgenerator/ProgressImage:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Hashgenerator/HashDad:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Hashgenerator/ProgressImage:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_g43gi"]
+resource_name = "advance_quest_bounce"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Questcontainer/Node2D/AdvanceQuest:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.15707043, 0.15707043), Vector2(0.17, 0.17), Vector2(0.15707043, 0.15707043)]
+}
+
+[sub_resource type="Animation" id="Animation_7207q"]
+resource_name = "lower_quest_bounce"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Questcontainer/Node2D/LowerQuest:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.15707043, 0.15707043), Vector2(0.17, 0.17), Vector2(0.15707043, 0.15707043)]
+}
+
+[sub_resource type="Animation" id="Animation_w86gj"]
+resource_name = "play_hashgenerator_hash"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Hashgenerator/ProgressImage:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Hashgenerator/HashDad:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Hashgenerator/ProgressImage:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7207q"]
+_data = {
+&"RESET": SubResource("Animation_dmiet"),
+&"advance_quest_bounce": SubResource("Animation_g43gi"),
+&"lower_quest_bounce": SubResource("Animation_7207q"),
+&"package_plop": SubResource("Animation_r0vgs"),
+&"play_hashgenerator_hash": SubResource("Animation_w86gj")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dlud5"]
+shader = ExtResource("6_hr7qw")
+shader_parameter/radius = 0.10000000475
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq2ti"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
+font_size = 36
+font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.08627451)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_glvh6"]
+font_size = 20
+font_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.08627451)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g43gi"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_hr7qw"]
+font_size = 24
+font_color = Color(0.96862745, 0.20784314, 0.05490196, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w86gj"]
+font_size = 24
+font_color = Color(0.4862745, 0.8039216, 0.5058824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofi4m"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hr7qw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.3)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w86gj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txumv"]
+shader = ExtResource("6_hr7qw")
+shader_parameter/radius = 0.10000000475
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nst81"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glvh6"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_choun"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_g43gi"]
+font_size = 20
+
+[node name="Ebene1" type="Node2D"]
+position = Vector2(0, -6.67572e-06)
+scale = Vector2(0.23078364, 0.23078364)
+script = ExtResource("1_x2k1u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7207q")
+}
+script = ExtResource("2_g43gi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+
+[node name="YourBlock" type="Node2D" parent="CanvasLayer"]
+position = Vector2(383, 832)
+
+[node name="Shadow" type="Sprite2D" parent="CanvasLayer/YourBlock"]
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(131, 269)
+scale = Vector2(0.7373047, 0.41041374)
+texture = ExtResource("2_y7lky")
+
+[node name="Package" type="Sprite2D" parent="CanvasLayer/YourBlock"]
+position = Vector2(128, 127)
+scale = Vector2(0.6035156, 0.6035156)
+texture = ExtResource("3_ofi4m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/YourBlock"]
+offset_left = 27.0
+offset_top = 62.0
+offset_right = 231.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/YourBlock/VBoxContainer"]
+layout_mode = 2
+
+[node name="pointer_square" parent="CanvasLayer/YourBlock/VBoxContainer/HBoxContainer" instance=ExtResource("4_glvh6")]
+modulate = Color(5.735511, 1.4318652, 0.5666993, 1)
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="hash_square" parent="CanvasLayer/YourBlock/VBoxContainer/HBoxContainer" instance=ExtResource("4_glvh6")]
+modulate = Color(1.5649678, 5.0921826, 4.914713, 1)
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="data_rect" parent="CanvasLayer/YourBlock/VBoxContainer" instance=ExtResource("5_hr7qw")]
+modulate = Color(3.0069108, 4.8037944, 3.11783, 1)
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LastBlock" type="Node2D" parent="CanvasLayer"]
+position = Vector2(-130, 832)
+
+[node name="Shadow" type="Sprite2D" parent="CanvasLayer/LastBlock"]
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(133, 269)
+scale = Vector2(0.7373047, 0.41041374)
+texture = ExtResource("2_y7lky")
+
+[node name="Package" type="Sprite2D" parent="CanvasLayer/LastBlock"]
+position = Vector2(128.00002, 133)
+scale = Vector2(0.6035156, 0.6035156)
+texture = ExtResource("3_ofi4m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LastBlock"]
+offset_left = 29.0
+offset_top = 62.0
+offset_right = 233.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/LastBlock/VBoxContainer"]
+layout_mode = 2
+
+[node name="pointer_square" parent="CanvasLayer/LastBlock/VBoxContainer/HBoxContainer" instance=ExtResource("4_glvh6")]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="hash_square" type="TextureRect" parent="CanvasLayer/LastBlock/VBoxContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_dlud5")
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("6_y7lky")
+expand_mode = 1
+script = ExtResource("8_w86gj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/LastBlock/VBoxContainer/HBoxContainer/hash_square"]
+modulate = Color(5.735511, 1.4318652, 0.5666993, 1)
+show_behind_parent = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qq2ti")
+
+[node name="data_rect" parent="CanvasLayer/LastBlock/VBoxContainer" instance=ExtResource("5_hr7qw")]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Labels" type="Node" parent="CanvasLayer"]
+
+[node name="LabelYourBlock" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 401.0
+offset_top = 729.0
+offset_right = 614.0
+offset_bottom = 779.0
+text = "Dein Block"
+label_settings = SubResource("LabelSettings_tbgi4")
+uppercase = true
+
+[node name="DataLabel" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 782.0
+offset_top = 1091.0
+offset_right = 1016.0
+offset_bottom = 1141.0
+text = "Daten"
+label_settings = SubResource("LabelSettings_tbgi4")
+uppercase = true
+
+[node name="DataVisualizerLabel" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 728.0
+offset_top = 1141.0
+offset_right = 962.0
+offset_bottom = 1191.0
+label_settings = SubResource("LabelSettings_glvh6")
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="PreviousHashVisualizerLabel" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 134.0
+offset_top = 1212.0
+offset_right = 368.0
+offset_bottom = 1262.0
+label_settings = SubResource("LabelSettings_glvh6")
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="HashVisualizerLabel" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 752.0
+offset_top = 914.0
+offset_right = 986.0
+offset_bottom = 964.0
+label_settings = SubResource("LabelSettings_glvh6")
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="HashLabel" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 815.0
+offset_top = 864.0
+offset_right = 1049.0
+offset_bottom = 914.0
+text = "Hash"
+label_settings = SubResource("LabelSettings_tbgi4")
+uppercase = true
+
+[node name="PreviousPointerHash" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 190.0
+offset_top = 1109.0
+offset_right = 341.0
+offset_bottom = 1212.0
+text = "Letzter
+Hash"
+label_settings = SubResource("LabelSettings_tbgi4")
+uppercase = true
+
+[node name="LabelLastBlock" type="Label" parent="CanvasLayer/Labels"]
+offset_left = 32.0
+offset_top = 675.0
+offset_right = 178.0
+offset_bottom = 778.0
+text = "Letzter Block"
+label_settings = SubResource("LabelSettings_tbgi4")
+autowrap_mode = 2
+uppercase = true
+
+[node name="HashArrow" type="Sprite2D" parent="CanvasLayer/Labels"]
+position = Vector2(716, 879.99994)
+rotation = 0.5235988
+scale = Vector2(0.27246088, 0.27246088)
+texture = ExtResource("8_hr7qw")
+
+[node name="PreviousHashArrow" type="Sprite2D" parent="CanvasLayer/Labels"]
+position = Vector2(328, 1032)
+rotation = -1.5707964
+scale = Vector2(0.27246088, 0.27246088)
+texture = ExtResource("8_hr7qw")
+flip_h = true
+
+[node name="DataArrow" type="Sprite2D" parent="CanvasLayer/Labels"]
+position = Vector2(699, 1110.0001)
+rotation = 1.0471976
+scale = Vector2(0.23078366, 0.23078366)
+texture = ExtResource("7_glvh6")
+
+[node name="Hashgenerator" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("7_g43gi")
+
+[node name="Background" type="Panel" parent="CanvasLayer/Hashgenerator"]
+offset_left = 83.0
+offset_top = 1535.0
+offset_right = 801.0
+offset_bottom = 1728.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g43gi")
+
+[node name="Button" type="Button" parent="CanvasLayer/Hashgenerator"]
+offset_left = 489.0
+offset_top = 1657.0
+offset_right = 637.0
+offset_bottom = 1707.0
+text = "Hash generieren"
+
+[node name="HashDad" type="TextureRect" parent="CanvasLayer/Hashgenerator"]
+visible = false
+material = SubResource("ShaderMaterial_dlud5")
+custom_minimum_size = Vector2(100, 100)
+offset_left = 666.0
+offset_top = 1555.0
+offset_right = 766.0
+offset_bottom = 1655.0
+expand_mode = 1
+script = ExtResource("8_w86gj")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Hashgenerator/HashDad"]
+modulate = Color(1.5649678, 5.0921826, 4.914713, 1)
+show_behind_parent = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qq2ti")
+
+[node name="PreviousHashGenLabel" type="Label" parent="CanvasLayer/Hashgenerator"]
+offset_left = 100.999985
+offset_top = 1555.0
+offset_right = 460.0
+offset_bottom = 1589.0
+text = "Test"
+label_settings = SubResource("LabelSettings_hr7qw")
+clip_text = true
+
+[node name="DataHashGenLabel" type="Label" parent="CanvasLayer/Hashgenerator"]
+offset_left = 99.0
+offset_top = 1605.0
+offset_right = 458.0
+offset_bottom = 1639.0
+text = "Test"
+label_settings = SubResource("LabelSettings_w86gj")
+
+[node name="ProgressImage" type="TextureRect" parent="CanvasLayer/Hashgenerator"]
+visible = false
+offset_left = 477.0
+offset_top = 1589.0
+offset_right = 649.0
+offset_bottom = 1609.0
+texture = ExtResource("8_ofi4m")
+expand_mode = 1
+
+[node name="Editor" type="Node" parent="CanvasLayer"]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Editor"]
+position = Vector2(449, 1635)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Editor/Node2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -225.0
+offset_right = 556.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DataInput" type="LineEdit" parent="CanvasLayer/Editor/Node2D/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ofi4m")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_hr7qw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_w86gj")
+placeholder_text = "Schreibe etwas .."
+
+[node name="Data" type="TextureRect" parent="CanvasLayer/Editor/Node2D/HBoxContainer"]
+material = SubResource("ShaderMaterial_txumv")
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+texture = ExtResource("8_ofi4m")
+expand_mode = 1
+script = ExtResource("8_w86gj")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Editor/Node2D/HBoxContainer/Data"]
+modulate = Color(3.0069108, 4.8037944, 3.11783, 1)
+show_behind_parent = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 100.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nst81")
+
+[node name="Questcontainer" type="Node" parent="CanvasLayer"]
+script = ExtResource("9_dmiet")
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Questcontainer"]
+
+[node name="Background" type="Panel" parent="CanvasLayer/Questcontainer/Node2D"]
+offset_left = 290.0
+offset_top = 105.0
+offset_right = 1165.0
+offset_bottom = 416.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_glvh6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Questcontainer/Node2D"]
+offset_left = 305.0
+offset_top = 134.0
+offset_right = 1067.0
+offset_bottom = 306.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Questcontainer/Node2D/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_7207q")
+expand_mode = 2
+
+[node name="Text" type="Label" parent="CanvasLayer/Questcontainer/Node2D/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_choun")
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="LowerQuest" type="Button" parent="CanvasLayer/Questcontainer/Node2D"]
+offset_left = 397.3049
+offset_top = 397.9234
+offset_right = 921.30493
+offset_bottom = 917.9234
+rotation = -3.1415927
+scale = Vector2(0.15707043, 0.15707043)
+text = "
+"
+icon = ExtResource("11_brctg")
+flat = true
+
+[node name="AdvanceQuest" type="Button" parent="CanvasLayer/Questcontainer/Node2D"]
+offset_left = 407.04916
+offset_top = 316.0
+offset_right = 927.0492
+offset_bottom = 836.0
+scale = Vector2(0.15707043, 0.15707043)
+icon = ExtResource("11_brctg")
+flat = true
+
+[node name="Progression" type="Label" parent="CanvasLayer/Questcontainer/Node2D"]
+offset_left = 514.0
+offset_top = 316.0
+offset_right = 1049.0
+offset_bottom = 398.0
+label_settings = SubResource("LabelSettings_g43gi")
+vertical_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/Hashgenerator/Button" to="CanvasLayer/Hashgenerator" method="generate_hash"]
+[connection signal="pressed" from="CanvasLayer/Hashgenerator/Button" to="AnimationPlayer" method="play_hash_progess"]
+[connection signal="text_changed" from="CanvasLayer/Editor/Node2D/HBoxContainer/DataInput" to="." method="_on_data_input_text_changed"]
+[connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/LowerQuest" to="CanvasLayer/Questcontainer" method="lower_quest"]
+[connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/LowerQuest" to="AnimationPlayer" method="play_lower_quest_bounce"]
+[connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/AdvanceQuest" to="CanvasLayer/Questcontainer" method="advance_quest"]
+[connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/AdvanceQuest" to="AnimationPlayer" method="play_advance_quest_bounce"]
