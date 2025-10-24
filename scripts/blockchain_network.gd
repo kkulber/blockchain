@@ -2,6 +2,7 @@ extends Node
 
 # NAME FIELD IS NULL. NO TIME.
 var blockchain_machines = []
+var current_id = 0
 #var used_names = []
 
 const AMOUNT_MACHINES = 13
@@ -110,7 +111,6 @@ func _ready() -> void:
 			broken_machine["blockchain"][broken_block_id]["hash"] = \
 			hash_block(broken_machine["blockchain"][broken_block_id]["content"], broken_machine["blockchain"][broken_block_id]["previous_hash"])
 		
-	print(blockchain_machines)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
