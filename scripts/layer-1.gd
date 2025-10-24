@@ -133,3 +133,8 @@ func _process(delta: float) -> void:
 func _on_data_input_text_changed(new_text: String) -> void:
 	questcontainer.trigger_quest_with_index(4)
 	input_field_text = new_text
+
+
+func _on_back_pressed() -> void:
+	#Globals.load_scene(Globals.layer2_scene)
+	get_tree().change_scene_to_file("res://scenes/layer-3.tscn")
