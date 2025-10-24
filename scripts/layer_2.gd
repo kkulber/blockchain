@@ -13,8 +13,8 @@ func _ready() -> void:
 		block.position = Vector2(-((amount_blocks - block_id - 1) * DISTANCE_BLOCKS), 0)
 		$"CanvasLayer/blockchain-container"/blockchain.add_child(block)
 
-func _on_button_pressed() -> void:
-	Globals.load_scene(Globals.layer1_scene)
+#func _on_button_pressed() -> void:
+	#Globals.load_scene(Globals.layer1_scene)
 
 func _on_back_layer_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/layer-3.tscn")
