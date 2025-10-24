@@ -1,10 +1,67 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwdtjoyxi8shh"]
+[gd_scene load_steps=16 format=3 uid="uid://dwdtjoyxi8shh"]
 
 [ext_resource type="Script" uid="uid://d2th4d11ipdn7" path="res://scripts/layer_2.gd" id="1_ag67j"]
 [ext_resource type="Texture2D" uid="uid://p642krb7d875" path="res://art/architecture.png" id="1_xjrqs"]
 [ext_resource type="Texture2D" uid="uid://dl22gfeskivr4" path="res://art/work-in-progress.png" id="2_fcwyc"]
+[ext_resource type="StyleBox" uid="uid://cka4ea8o0xe63" path="res://art/menu_button_style.tres" id="2_tsxve"]
+[ext_resource type="StyleBox" uid="uid://du5vlt5cjusor" path="res://art/menu_button_style_pressed.tres" id="3_51cqx"]
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="3_eq7jh"]
 [ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="4_ag67j"]
+[ext_resource type="StyleBox" uid="uid://c0v4houy0gqrt" path="res://art/menu_button_style_hover.tres" id="4_pbhaj"]
+
+[sub_resource type="Animation" id="Animation_ag67j"]
+resource_name = "left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10, 700), Vector2(480, 700)]
+}
+
+[sub_resource type="Animation" id="Animation_t6bqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 700)]
+}
+
+[sub_resource type="Animation" id="Animation_1tsxh"]
+resource_name = "right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 700), Vector2(480, 700)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tsxh"]
+_data = {
+&"RESET": SubResource("Animation_t6bqv"),
+&"left": SubResource("Animation_ag67j"),
+&"right": SubResource("Animation_1tsxh")
+}
 
 [sub_resource type="InputEventAction" id="InputEventAction_2h877"]
 action = &"start_game"
@@ -18,6 +75,12 @@ font_size = 120
 [node name="Layer2" type="Node2D"]
 script = ExtResource("1_ag67j")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer/blockchain-container/blockchain")
+libraries = {
+&"": SubResource("AnimationLibrary_1tsxh")
+}
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -29,7 +92,24 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.8539175, 0.8539175, 0.8539175, 1)
 
+[node name="Button_Start" type="Button" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 305.0
+offset_right = 814.0
+offset_bottom = 437.0
+theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = ExtResource("2_tsxve")
+theme_override_styles/pressed = ExtResource("3_51cqx")
+theme_override_styles/pressed_mirrored = ExtResource("3_51cqx")
+theme_override_styles/hover = ExtResource("4_pbhaj")
+theme_override_styles/hover_pressed = ExtResource("3_51cqx")
+text = "Neuer Block"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -114,13 +194,14 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 170.0
+offset_left = 180.02502
 offset_top = 711.0
-offset_right = 511.33337
-offset_bottom = 1070.1902
+offset_right = 561.35803
+offset_bottom = 1070.19
 grow_horizontal = 2
 rotation = 3.1415927
 size_flags_horizontal = 4
@@ -131,5 +212,52 @@ icon = ExtResource("4_ag67j")
 flat = true
 expand_icon = true
 
+[node name="left_button" type="Button" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = -629.0
+offset_right = 100.0
+offset_bottom = -554.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_t6bqv")
+icon = ExtResource("4_ag67j")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="right_button" type="Button" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1059.0
+offset_top = -479.0
+offset_right = 1140.0
+offset_bottom = -404.0
+grow_vertical = 2
+rotation = 3.1415927
+scale = Vector2(2, 2)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_t6bqv")
+icon = ExtResource("4_ag67j")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="blockchain-container" type="Node2D" parent="CanvasLayer"]
+
+[node name="blockchain" type="Node2D" parent="CanvasLayer/blockchain-container"]
+position = Vector2(480, 700)
+
+[connection signal="button_down" from="CanvasLayer/ColorRect/Button_Start" to="." method="_new_block"]
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Back_layer2" to="." method="_on_back_layer_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/left_button" to="." method="_on_left"]
+[connection signal="button_down" from="CanvasLayer/right_button" to="." method="_on_right"]

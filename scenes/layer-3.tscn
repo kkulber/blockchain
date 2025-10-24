@@ -15,7 +15,6 @@ events = [SubResource("InputEventAction_2h877")]
 font_size = 120
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("2_6dgsa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

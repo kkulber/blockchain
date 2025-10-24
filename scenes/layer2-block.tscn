@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://tucypxsk1qvl"]
+
+[ext_resource type="Script" uid="uid://cno0guefxtqu2" path="res://scripts/layer-2-block.gd" id="1_wxfsp"]
+[ext_resource type="Texture2D" uid="uid://dc6q6nncv8n5a" path="res://images/layer-2-block.png" id="2_86vt1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sll2m"]
+font_size = 36
+font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.08627451)
+shadow_offset = Vector2(0, 0)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wxfsp")
+
+[node name="LetzterHashLabel" type="Label" parent="."]
+offset_left = -48.0
+offset_top = 750.0
+offset_right = 203.0
+offset_bottom = 800.0
+text = "Letzter Hash"
+label_settings = SubResource("LabelSettings_sll2m")
+uppercase = true
+
+[node name="LetzterHashLabel2" type="Label" parent="."]
+offset_left = -119.0
+offset_top = 822.0
+offset_right = 256.0
+offset_bottom = 872.0
+label_settings = SubResource("LabelSettings_sll2m")
+autowrap_mode = 1
+uppercase = true
+
+[node name="InhaltLabel" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 528.0
+offset_right = 145.0
+offset_bottom = 585.0
+text = "Inhalt"
+label_settings = SubResource("LabelSettings_sll2m")
+uppercase = true
+
+[node name="HashLabel" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 219.0
+offset_right = 120.0
+offset_bottom = 269.0
+text = "Hash"
+label_settings = SubResource("LabelSettings_sll2m")
+uppercase = true
+
+[node name="HashLabel2" type="Label" parent="."]
+offset_left = -122.0
+offset_top = 272.0
+offset_right = 254.0
+offset_bottom = 322.0
+label_settings = SubResource("LabelSettings_sll2m")
+autowrap_mode = 1
+uppercase = true
+
+[node name="InhaltLabel2" type="Label" parent="."]
+offset_left = -116.0
+offset_top = 586.0
+offset_right = 255.0
+offset_bottom = 636.0
+label_settings = SubResource("LabelSettings_sll2m")
+autowrap_mode = 3
+uppercase = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_86vt1")
