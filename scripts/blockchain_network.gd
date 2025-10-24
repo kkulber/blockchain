@@ -111,7 +111,7 @@ func _ready() -> void:
 			broken_machine["blockchain"][broken_block_id]["hash"] = \
 			hash_block(broken_machine["blockchain"][broken_block_id]["content"], broken_machine["blockchain"][broken_block_id]["previous_hash"])
 		
-	
+	print(hash_block("JJUHJGBHJV", "GUFUF"))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
