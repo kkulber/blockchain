@@ -1,0 +1,19 @@
+{
+  "quiz": [
+	{
+	  "frage": "Woraus besteht ein Block?",
+	  "antworten": ["Inhalt, Hash, vorheriger Hash", "Inhalt, Hash", "Inhalt, Hash, nächster Hash"],
+	  "richtige_antwort": "Inhalt, Hash, vorheriger Hash"
+	},
+	{
+	  "frage": "Was ist eine Blockchain?",
+	  "antworten": ["Zentrale Datenbank", "verteilte, unveränderliche Kette", "soziales Netzwerk"],
+	  "richtige_antwort": "verteilte, unveränderliche Kette"
+	},
+	{
+	  "frage": "Was sorgt dafür dass Daten nicht manipuliert werden?",
+	  "antworten": ["Werbung", "Kryptografische Hashes", "Benutzerpasswörter"],
+	  "richtige_antwort": "Kryptografische Hashes"
+	}
+  ]
+}
