@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://b4mttmwksc2v6"]
 
 [ext_resource type="Script" uid="uid://ck2oqndpp715y" path="res://scripts/layer-1.gd" id="1_x2k1u"]
-[ext_resource type="Script" path="res://scripts/animation_player.gd" id="2_g43gi"]
+[ext_resource type="Script" uid="uid://u7p0tjyot018" path="res://scripts/animation_player.gd" id="2_g43gi"]
 [ext_resource type="Texture2D" uid="uid://bkqbr6erkgyeg" path="res://images/ellipse.png" id="2_y7lky"]
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="3_g43gi"]
 [ext_resource type="Texture2D" uid="uid://chku1xcq2qd8k" path="res://images/package.png" id="3_ofi4m"]
@@ -10,12 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://delhpy0pbys1y" path="res://scenes/dad_rect.tscn" id="5_hr7qw"]
 [ext_resource type="Shader" uid="uid://c5pcq14712pkh" path="res://shaders/dad_rect.gdshader" id="6_hr7qw"]
 [ext_resource type="Texture2D" uid="uid://vcm8e5yfxkdg" path="res://images/square_red.svg" id="6_y7lky"]
-[ext_resource type="Script" path="res://scripts/hashgenerator.gd" id="7_g43gi"]
+[ext_resource type="Script" uid="uid://cly6rpvjpmjry" path="res://scripts/hashgenerator.gd" id="7_g43gi"]
 [ext_resource type="Texture2D" uid="uid://boigv405skmno" path="res://images/arrow.png" id="7_glvh6"]
 [ext_resource type="Texture2D" uid="uid://bi7022w1qsnoc" path="res://images/curved-arrow.png" id="8_hr7qw"]
 [ext_resource type="Texture2D" uid="uid://eqpqpk0qour2" path="res://images/square_green.svg" id="8_ofi4m"]
 [ext_resource type="Script" uid="uid://bauv76m8qya0s" path="res://scripts/texture_rect.gd" id="8_w86gj"]
-[ext_resource type="Script" path="res://scripts/questcontainer.gd" id="9_dmiet"]
+[ext_resource type="Script" uid="uid://sxao0ue5uobb" path="res://scripts/questcontainer.gd" id="9_dmiet"]
 [ext_resource type="Texture2D" uid="uid://cwx1als7pvpjg" path="res://images/quest.png" id="10_7207q"]
 [ext_resource type="Texture2D" uid="uid://briaqfeif6avu" path="res://images/play-button.png" id="11_brctg"]
 
@@ -649,10 +649,11 @@ offset_bottom = 1728.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_g43gi")
 
 [node name="Button" type="Button" parent="CanvasLayer/Hashgenerator"]
-offset_left = 489.0
-offset_top = 1657.0
-offset_right = 637.0
-offset_bottom = 1707.0
+offset_left = 458.0
+offset_top = 1655.0
+offset_right = 658.0
+offset_bottom = 1705.0
+theme_override_font_sizes/font_size = 24
 text = "Hash generieren"
 
 [node name="HashDad" type="TextureRect" parent="CanvasLayer/Hashgenerator"]
