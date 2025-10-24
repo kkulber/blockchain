@@ -25,7 +25,7 @@ func _on_button_lexikon_pressed() -> void:
 
 
 func _on_button_start_pressed() -> void:
-	Globals.load_scene(Globals.layer3_scene)
+	Globals.load_scene(Globals.layer1_scene)
 
 
 func _on_button_licensing_pressed() -> void:
@@ -34,3 +34,4 @@ func _on_button_licensing_pressed() -> void:
 
 func _on_button_licensing_close_pressed() -> void:
 	%Panel_Licensing.hide()
+

@@ -2,8 +2,8 @@ extends Node2D
 
 # Keep track of your generated block
 var block_data = ""
-var block_previous_hash = "0000"
-var block_hash = "0000"
+var block_previous_hash = "12345567890"
+var block_hash = "8u7qcn87b1ct8c17tc3r18tr187trc8bt1c8c1128bh78ct1z"
 
 # Declare all nodes used later
 var data_dad
@@ -82,21 +82,10 @@ func _ready() -> void:
 	
 	animation_player = $AnimationPlayer
 	
-	block_previous_hash = BlockchainNetwork.blockchain_machines \
-	 	[BlockchainNetwork.current_id]["blockchain"][-1]["hash"]
-
 	# Turns off the hashgenerator
 	hide_hashgenerator()
 
 func _process(delta: float) -> void:
-	if $CanvasLayer/Block/Data_DaD_Block.texture and $CanvasLayer/Block/Pointer_DaD_Block.texture and $CanvasLayer/Block/Hash_DaD_Block.texture:
-		$CanvasLayer/Block/Panel.modulate = Color.GREEN
-		$CanvasLayer/Block/Deckel.visible = true
-		$CanvasLayer/Block/Add.visible = true
-	else:
-		$CanvasLayer/Block/Panel.modulate = Color.RED
-		$CanvasLayer/Block/Deckel.visible = false
-		$CanvasLayer/Block/Add.visible = false
 	
 	# Player places data in the package
 	if data_dad.texture:
@@ -150,4 +139,3 @@ func _on_back_pressed() -> void:
 
 func _on_forward_pressed() -> void:
 	Globals.load_scene(Globals.layer2_scene)
-
