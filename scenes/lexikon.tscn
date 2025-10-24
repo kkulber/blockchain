@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_paukg"]
 [ext_resource type="LabelSettings" uid="uid://c2qk7n04an7nk" path="res://art/default_font.tres" id="3_k8g70"]
 [ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="4_k8g70"]
-[ext_resource type="Script" uid="uid://b0w3qxrcohdy" path="res://scripts/lexikon.gd" id="4_paukg"]
+[ext_resource type="Script" path="res://scripts/lexikon.gd" id="4_paukg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m10ki"]
 font_size = 100
@@ -316,6 +316,41 @@ fit_content = true
 scroll_active = false
 
 [node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer2/VBoxContainer6"]
+light_mask = 0
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="ScrollContainer/VBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer2/VBoxContainer7"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+text = "Smart Contracts"
+label_settings = ExtResource("3_k8g70")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer2/VBoxContainer7"]
+light_mask = 0
+layout_mode = 2
+mouse_behavior_recursive = 1
+theme_override_colors/default_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+text = "Smart Contracts sind digitale Verträge, die automatisch ausgeführt werden, sobald festgelegte Bedingungen erfüllt sind.  
+Beispielsweise kann bei einem Zahlungseingang automatisch der Versand der bestellten Ware ausgelöst werden.  
+Da der Vertrag fälschungssicher abläuft, ist keine dritte Partei nötig, die den Vertragsprozess überwacht.
+"
+fit_content = true
+scroll_active = false
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer2/VBoxContainer7"]
 light_mask = 0
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
