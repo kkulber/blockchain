@@ -73,7 +73,7 @@ func add_block_to_blockchain():
 	if block_added_to_blockchain: return
 	block_added_to_blockchain = true
 	print("Blockdata: " + input_field_text)
-	BlockchainNetwork.add_block_to_machine(input_field_text, BlockchainNetwork.current_id)
+	BlockchainNetwork.add_block_to_network(input_field_text)
 	print("add_block_to_blockchain func done!")
 
 # -- Godot's built in functions --

@@ -27,6 +27,11 @@ func generate_random_content(names):
 		% [names[rng.randi_range(0, names.size() - 1)], rng.randi_range(TRANSFER_MIN, TRANSFER_MAX), 
 		EURO, names[rng.randi_range(0, names.size() - 1)]]
 
+func add_block_to_network(content):
+	for machine_id in range(AMOUNT_MACHINES):
+		if is_valid_blockchain(machine_id):
+			add_block_to_machine(content, machine_id)
+
 # function to add a block to the blockchain of a random machine
 func add_block_to_machine(content, id):
 	var previous_hash = "0"
@@ -95,10 +100,11 @@ func _ready() -> void:
 			#
 		## if a block isn't broken, all machines validate it
 		#else:
+		var content = generate_random_content(names)
 		for machine_index in range(AMOUNT_MACHINES):
 			#if machine_index in broken_machines:
 				#continue
-			add_block_to_machine(generate_random_content(names), machine_index)
+			add_block_to_machine(content, machine_index)
 			#add_block_to_machine(generate_random_content(used_names), machine_index)
 	
 	# randomly modify blockchains to invalidate them
@@ -111,7 +117,6 @@ func _ready() -> void:
 			broken_machine["blockchain"][broken_block_id]["hash"] = \
 			hash_block(broken_machine["blockchain"][broken_block_id]["content"], broken_machine["blockchain"][broken_block_id]["previous_hash"])
 		
-	print(hash_block("JJUHJGBHJV", "GUFUF"))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass

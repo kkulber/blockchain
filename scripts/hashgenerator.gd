@@ -16,7 +16,7 @@ func generate_hash():
 	has_generated_hash = true
 	
 	var main = $"../.."
-	var new_hash = BlockchainNetwork.hash_block(main.block_data, main.block_previous_hash)
+	var new_hash = BlockchainNetwork.hash_block(main.input_field_text, main.block_previous_hash)
 	main.block_hash = new_hash
 
 func _ready() -> void:
