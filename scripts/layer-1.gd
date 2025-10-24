@@ -12,6 +12,7 @@ var hashgenerator_shown = false
 
 var hash_dad
 var block_is_complete = false
+var block_added_to_blockchain = false
 
 var questcontainer
 
@@ -24,6 +25,8 @@ var input_field_text = ""
 var hashgenerator
 
 var animation_player
+
+var completion_button
 
 # Communication functions (gets and sets) for the values of the block
 # 	- data a block holds (block_data)
@@ -64,6 +67,14 @@ func hide_hashgenerator() -> void:
 func clear_label_text(label):
 	label.text = ""
 
+# Adds current block to blockchainnetwork
+func add_block_to_blockchain():
+	print("started add_block_to_blockchain func")
+	if block_added_to_blockchain: return
+	block_added_to_blockchain = true
+	print("Blockdata: " + input_field_text)
+	BlockchainNetwork.add_block_to_machine(input_field_text, BlockchainNetwork.current_id)
+	print("add_block_to_blockchain func done!")
 
 # -- Godot's built in functions --
 
@@ -82,11 +93,16 @@ func _ready() -> void:
 	
 	animation_player = $AnimationPlayer
 	
+	completion_button = $CanvasLayer/CompleteButton
+	
 	block_previous_hash = BlockchainNetwork.blockchain_machines \
 	 	[BlockchainNetwork.current_id]["blockchain"][-1]["hash"]
 
 	# Turns off the hashgenerator
 	hide_hashgenerator()
+	
+	# Hides completion button
+	completion_button.visible = false
 
 func _process(delta: float) -> void:
 	# Player places data in the package
@@ -126,7 +142,8 @@ func _process(delta: float) -> void:
 	# Check each frame if the block is complete
 	if data_dad.texture and previous_pointer_dad.texture and hash_dad.texture and not block_is_complete:
 		block_is_complete = true
-		questcontainer.trigger_quest_with_index(10)
+		questcontainer.trigger_quest_with_index(11)
+		completion_button.visible = true
 
 # Function called, when the user enters some text
 func _on_data_input_text_changed(new_text: String) -> void:

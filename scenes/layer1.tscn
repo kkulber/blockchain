@@ -789,6 +789,15 @@ offset_bottom = 398.0
 label_settings = SubResource("LabelSettings_g43gi")
 vertical_alignment = 1
 
+[node name="CompleteButton" type="Button" parent="CanvasLayer"]
+modulate = Color(3.214377, 5.1330113, 3.3328114, 1)
+offset_left = 857.0
+offset_top = 571.0
+offset_right = 1037.0
+offset_bottom = 642.0
+theme_override_font_sizes/font_size = 24
+text = "Fertig!"
+
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Hashgenerator/Button" to="AnimationPlayer" method="play_hash_progess"]
 [connection signal="pressed" from="CanvasLayer/Hashgenerator/Button" to="CanvasLayer/Hashgenerator" method="generate_hash"]
@@ -797,3 +806,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/LowerQuest" to="CanvasLayer/Questcontainer" method="lower_quest"]
 [connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/AdvanceQuest" to="AnimationPlayer" method="play_advance_quest_bounce"]
 [connection signal="pressed" from="CanvasLayer/Questcontainer/Node2D/AdvanceQuest" to="CanvasLayer/Questcontainer" method="advance_quest"]
+[connection signal="pressed" from="CanvasLayer/CompleteButton" to="." method="add_block_to_blockchain"]

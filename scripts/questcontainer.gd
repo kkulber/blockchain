@@ -29,7 +29,9 @@ var quests = [
 	"Um Deinen eigenen Hash zu erstellen drücke auf den Button 'Hash generieren' - 
 	dabei kannst Du erkennen, dass der neue Hash aus dem Alten und deinen Daten besteht.",
 	# 10
-	"Herzlichen Glückwunsch! Du hast jetzt verstanden, wie Blöcke verbunden werden und eine Blockchain entsteht."
+	"Herzlichen Glückwunsch! Du hast jetzt verstanden, wie Blöcke verbunden werden und eine Blockchain entsteht.",
+	# 11
+	"Drücke nun auf 'Fertig!', um die neue Blockchain im Netzwerk zu teilen. Damit hast Du das Tutorial beendet :D"
 ]
 var label
 var current_quest = 0
