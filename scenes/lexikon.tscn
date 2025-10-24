@@ -75,8 +75,8 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="JguLogo" type="Sprite2D" parent="ColorRect2/AspectRatioContainer"]
-position = Vector2(-5, -1)
-scale = Vector2(0.53139013, 0.53539824)
+position = Vector2(-71, -37.999996)
+scale = Vector2(0.824, 0.83)
 texture = ExtResource("2_paukg")
 centered = false
 
