@@ -7,7 +7,9 @@ var lexikon_scene = preload("res://scenes/lexikon.tscn")
 var layer1_scene = preload("res://scenes/layer1.tscn")
 var layer2_scene = preload("res://scenes/layer-2.tscn")
 var layer3_scene = preload("res://scenes/layer-3.tscn")
+var quiz_scene = preload("res://scenes/quiz.tscn")
 
+var previous_question = 0
 
 func load_scene(scene: PackedScene) -> void:
 	get_tree().change_scene_to_packed(scene)

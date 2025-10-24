@@ -1,0 +1,310 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2ivem6rhex60"]
+
+[ext_resource type="Script" uid="uid://b0166kjktusv8" path="res://scripts/quiz.gd" id="1_2fkxq"]
+[ext_resource type="Texture2D" uid="uid://bnuw5h3r7cu1k" path="res://art/jgu-logo.png" id="2_w5ac1"]
+[ext_resource type="StyleBox" uid="uid://bbtyi50aelit1" path="res://art/quiz_button_style.tres" id="4_m81w7"]
+[ext_resource type="Texture2D" uid="uid://bchu78yjxwtkn" path="res://art/arrow-left-circle.svg" id="4_xq7j8"]
+[ext_resource type="StyleBox" uid="uid://du5vlt5cjusor" path="res://art/menu_button_style_pressed.tres" id="5_xq7j8"]
+[ext_resource type="StyleBox" uid="uid://c0v4houy0gqrt" path="res://art/menu_button_style_hover.tres" id="6_bn6h1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m10ki"]
+font_size = 100
+
+[sub_resource type="InputEventAction" id="InputEventAction_2h877"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_h68ux"]
+events = [SubResource("InputEventAction_2h877")]
+
+[sub_resource type="GDScript" id="GDScript_m10ki"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_back_lexikon_pressed() -> void:
+	
+	pass # Replace with function body.
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fkxq"]
+bg_color = Color(0.7708395, 0.77083945, 0.7708394, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Lexikon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2fkxq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8539175, 0.8539175, 0.8539175, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 180.0
+grow_horizontal = 2
+size_flags_vertical = 0
+color = Color(0.75686276, 0.047058824, 0.14509805, 1)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="JguLogo" type="Sprite2D" parent="ColorRect2/AspectRatioContainer"]
+position = Vector2(-71, -37.999996)
+scale = Vector2(0.824, 0.83)
+texture = ExtResource("2_w5ac1")
+centered = false
+
+[node name="LexikonHeader" type="Label" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -68.5
+offset_right = 179.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Quiz	"
+label_settings = SubResource("LabelSettings_m10ki")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 95.0
+offset_bottom = 89.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_h68ux")
+icon = ExtResource("4_xq7j8")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = SubResource("GDScript_m10ki")
+
+[node name="QuizControl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1740.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="QuizControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Panel" type="Panel" parent="QuizControl/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2fkxq")
+
+[node name="MarginContainer" type="MarginContainer" parent="QuizControl/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Control" type="Control" parent="QuizControl/MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/font_size = 75
+text = "FRAGE"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label_question_text" type="Label" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/font_size = 50
+text = "Wie wird ein Paddelboot noch genannt?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Button1_Quiz" type="Button" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("4_m81w7")
+theme_override_styles/pressed = ExtResource("5_xq7j8")
+theme_override_styles/pressed_mirrored = ExtResource("5_xq7j8")
+theme_override_styles/hover = ExtResource("6_bn6h1")
+theme_override_styles/hover_mirrored = ExtResource("6_bn6h1")
+theme_override_styles/hover_pressed = ExtResource("5_xq7j8")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_xq7j8")
+text = "Answer1"
+autowrap_mode = 2
+clip_text = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Button2_Quiz" type="Button" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer/MarginContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("4_m81w7")
+theme_override_styles/pressed = ExtResource("5_xq7j8")
+theme_override_styles/pressed_mirrored = ExtResource("5_xq7j8")
+theme_override_styles/hover = ExtResource("6_bn6h1")
+theme_override_styles/hover_mirrored = ExtResource("6_bn6h1")
+theme_override_styles/hover_pressed = ExtResource("5_xq7j8")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_xq7j8")
+text = "Answer2"
+autowrap_mode = 2
+clip_text = true
+
+[node name="MarginContainer5" type="MarginContainer" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Button3_Quiz" type="Button" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer/MarginContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("4_m81w7")
+theme_override_styles/pressed = ExtResource("5_xq7j8")
+theme_override_styles/pressed_mirrored = ExtResource("5_xq7j8")
+theme_override_styles/hover = ExtResource("6_bn6h1")
+theme_override_styles/hover_mirrored = ExtResource("6_bn6h1")
+theme_override_styles/hover_pressed = ExtResource("5_xq7j8")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_xq7j8")
+text = "Answer3"
+autowrap_mode = 2
+clip_text = true
+
+[node name="Button_NextQuiz" type="Button" parent="QuizControl/MarginContainer/Panel/MarginContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -304.0
+offset_right = 390.0
+offset_bottom = 673.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("4_m81w7")
+theme_override_styles/pressed = ExtResource("5_xq7j8")
+theme_override_styles/pressed_mirrored = ExtResource("5_xq7j8")
+theme_override_styles/hover = ExtResource("6_bn6h1")
+theme_override_styles/hover_mirrored = ExtResource("6_bn6h1")
+theme_override_styles/hover_pressed = ExtResource("5_xq7j8")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_xq7j8")
+text = "Richtig!
+Weiter zur nächsten Frage"
+autowrap_mode = 2
+clip_text = true
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer/MarginContainer/Button1_Quiz" to="." method="_on_button_1_quiz_pressed"]
+[connection signal="pressed" from="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer/MarginContainer4/Button2_Quiz" to="." method="_on_button_2_quiz_pressed"]
+[connection signal="pressed" from="QuizControl/MarginContainer/Panel/MarginContainer/Control/VBoxContainer/MarginContainer5/Button3_Quiz" to="." method="_on_button_3_quiz_pressed"]
+[connection signal="pressed" from="QuizControl/MarginContainer/Panel/MarginContainer/Control/Button_NextQuiz" to="." method="_on_button_next_quiz_pressed"]
