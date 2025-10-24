@@ -1,7 +1,9 @@
 extends Node
 
+# NAME FIELD IS NULL. NO TIME.
 var blockchain_machines = []
-var used_names = []
+var current_id = 0
+#var used_names = []
 
 const AMOUNT_MACHINES = 13
 const LENGTH_CHAIN_MIN = 15
@@ -10,7 +12,7 @@ const TRANSFER_MIN = 1
 const TRANSFER_MAX = 500
 const PROBABILITY_BREAK = 0.025
 const MODIFIED_CHAINS_MIN = 1
-const MODIFIED_CHAINS_MAX = 2
+const MODIFIED_CHAINS_MAX = 3
 
 const EURO = "€"
 const CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -37,17 +39,17 @@ func add_block_to_machine(content, id):
 	})
 
 # function to check wether content is in the correct format
-func correct_content_format(content):
-	var content_format = RegEx.new()
-	content_format.compile("(%s) überweist [0-9]+%s an (%s)" % ["|".join(used_names), EURO, "|".join(used_names)])
-	return content_format.search(content) != null
+#func correct_content_format(content):
+	#var content_format = RegEx.new()
+	#content_format.compile("(%s) überweist [0-9]+%s an (%s)" % ["|".join(used_names), EURO, "|".join(used_names)])
+	#return content_format.search(content) != null
 
 # function to validate the blockchain of a machine
 func is_valid_blockchain(id):
 	var blockchain = blockchain_machines[id]["blockchain"]
 	for block_id in range(blockchain.size() - 1, -1, -1):
-		if !correct_content_format(blockchain[block_id]["content"]) || \
-			(block_id != 0 and blockchain[block_id]["previous_hash"] != blockchain[block_id - 1]["hash"]) || \
+		#if !correct_content_format(blockchain[block_id]["content"]) || \
+		if	(block_id != 0 and blockchain[block_id]["previous_hash"] != blockchain[block_id - 1]["hash"]) || \
 			(block_id == 0 and blockchain[block_id]["previous_hash"] != "0") || \
 			blockchain[block_id]["hash"] != hash_block(blockchain[block_id]["content"], blockchain[block_id]["previous_hash"]):
 				return false
@@ -70,42 +72,45 @@ func _ready() -> void:
 	
 	# pick random names for machines
 	var rng = RandomNumberGenerator.new()
-	for machine_index in range(AMOUNT_MACHINES):
-		var name_index = rng.randi_range(0, names.size() - 1)
-		blockchain_machines[machine_index]["name"] = names[name_index]
-		used_names.append(names[name_index]) 
-		names.remove_at(name_index)
+	#for machine_index in range(AMOUNT_MACHINES):
+		#var name_index = rng.randi_range(0, names.size() - 1)
+		#blockchain_machines[machine_index]["name"] = names[name_index]
+		#used_names.append(names[name_index]) 
+		#names.remove_at(name_index)
 	
 	# generate a random blockchain
 	var chain_length = rng.randi_range(LENGTH_CHAIN_MIN, LENGTH_CHAIN_MAX)
-	var broken_machines = []
+	#var broken_machines = []
 	for i in range(chain_length):
 		
 		# randomly break blockchains of singular machines
-		if rng.randf() < PROBABILITY_BREAK:
-			var broken_machine_index = rng.randi_range(0, AMOUNT_MACHINES - 1)
-			if broken_machine_index in broken_machines:
-				continue
-			broken_machines.append(broken_machine_index)
-			var random_content = generate_random_content(used_names)
-			random_content[rng.randi_range(0, random_content.length() - 1)] = CHARACTERS[rng.randi_range(0, CHARACTERS.length() - 1)]
-			add_block_to_machine(random_content, broken_machine_index)
-			
-		# if a block isn't broken, all machines validate it
-		else:
-			for machine_index in range(AMOUNT_MACHINES):
-				if machine_index in broken_machines:
-					continue
-				add_block_to_machine(generate_random_content(used_names), machine_index)
+		#if rng.randf() < PROBABILITY_BREAK:
+			#var broken_machine_index = rng.randi_range(0, AMOUNT_MACHINES - 1)
+			#if broken_machine_index in broken_machines:
+				#continue
+			#broken_machines.append(broken_machine_index)
+			#var random_content = generate_random_content(used_names)
+			#random_content[rng.randi_range(0, random_content.length() - 1)] = CHARACTERS[rng.randi_range(0, CHARACTERS.length() - 1)]
+			#add_block_to_machine(random_content, broken_machine_index)
+			#
+		## if a block isn't broken, all machines validate it
+		#else:
+		for machine_index in range(AMOUNT_MACHINES):
+			#if machine_index in broken_machines:
+				#continue
+			add_block_to_machine(generate_random_content(names), machine_index)
+			#add_block_to_machine(generate_random_content(used_names), machine_index)
 	
 	# randomly modify blockchains to invalidate them
 	for i in range(rng.randi_range(MODIFIED_CHAINS_MIN, MODIFIED_CHAINS_MAX)):
 		var broken_machine = blockchain_machines[rng.randi_range(0, AMOUNT_MACHINES - 1)]
 		var broken_block_id = rng.randi_range(0, broken_machine["blockchain"].size() - 1)
-		broken_machine["blockchain"][broken_block_id]["content"] = generate_random_content(used_names)
+		#broken_machine["blockchain"][broken_block_id]["content"] = generate_random_content(used_names)
+		broken_machine["blockchain"][broken_block_id]["content"] = generate_random_content(names)
 		if rng.randi_range(0, 1) == 0:
 			broken_machine["blockchain"][broken_block_id]["hash"] = \
 			hash_block(broken_machine["blockchain"][broken_block_id]["content"], broken_machine["blockchain"][broken_block_id]["previous_hash"])
+		
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

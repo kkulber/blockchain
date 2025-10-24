@@ -1,0 +1,7 @@
+-- Alle Quellen für benutzte Icons von www.flaticon.com --
+
+<a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by ChilliColor - Flaticon</a><a href="https://www.flaticon.com/free-icons/curved-arrow" title="curved arrow icons">Curved arrow icons created by Creartive - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/package" title="package icons">Package icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/play-button" title="play button icons">Play button icons created by NajmunNahar - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/rpg" title="rpg icons">Rpg icons created by Febrian Hidayat - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by Freepik - Flaticon</a>
