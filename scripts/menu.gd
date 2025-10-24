@@ -34,4 +34,3 @@ func _on_button_licensing_pressed() -> void:
 
 func _on_button_licensing_close_pressed() -> void:
 	%Panel_Licensing.hide()
-

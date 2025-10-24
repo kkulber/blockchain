@@ -89,15 +89,6 @@ func _ready() -> void:
 	hide_hashgenerator()
 
 func _process(delta: float) -> void:
-	if $CanvasLayer/Block/Data_DaD_Block.texture and $CanvasLayer/Block/Pointer_DaD_Block.texture and $CanvasLayer/Block/Hash_DaD_Block.texture:
-		$CanvasLayer/Block/Panel.modulate = Color.GREEN
-		$CanvasLayer/Block/Deckel.visible = true
-		$CanvasLayer/Block/Add.visible = true
-	else:
-		$CanvasLayer/Block/Panel.modulate = Color.RED
-		$CanvasLayer/Block/Deckel.visible = false
-		$CanvasLayer/Block/Add.visible = false
-	
 	# Player places data in the package
 	if data_dad.texture:
 		questcontainer.trigger_quest_with_index(7)		# Trigger quest for completing writing your data
@@ -150,4 +141,3 @@ func _on_back_pressed() -> void:
 
 func _on_forward_pressed() -> void:
 	Globals.load_scene(Globals.layer2_scene)
-
